@@ -160,55 +160,67 @@
 
                     <article class="featured-card">
 
-                        <div class="featured-image-wrapper">
+    <div class="featured-image-wrapper">
 
-                            <img
-                                src="{{ url_for('static', filename='images/featured-security.jpg') }}"
-                                alt="Information assurance and security"
-                                class="featured-image"
-                            >
+        <img
+            src="{{ url_for('static', filename='images/' ~ featured_post.image) }}"
+            alt="{{ featured_post.image_alt }}"
+            class="featured-image"
+        >
 
-                        </div>
-
-
-                        <div class="featured-content">
-
-                            <h3 class="featured-title">
-                                Introduction to Information
-                                <br>
-                                Assurance and Security
-                            </h3>
-
-                            <p class="featured-description">
-                                Information is one of the most valuable assets in
-                                today’s digital world. This lesson introduces the
-                                fundamentals of Information Assurance and Security.
-                            </p>
-
-                            <a href="#" class="read-more-button">
-                                <span>Read More</span>
-                                <span aria-hidden="true">→</span>
-                            </a>
+    </div>
 
 
-                            <div class="entry-meta">
+    <div class="featured-content">
 
-                                <span class="meta-item">
-                                    <span class="meta-icon calendar-icon"></span>
-                                    August 2, 2026
-                                </span>
+        <h3 class="featured-title">
+            {{ featured_post.title_line_1 }}
+            <br>
+            {{ featured_post.title_line_2 }}
+        </h3>
 
-                                <span class="meta-item">
-                                    <span class="meta-icon clock-icon"></span>
-                                    6 min read
-                                </span>
+        <p class="featured-description">
+            {{ featured_post.description }}
+        </p>
 
-                            </div>
+        <a
+            href="{{ url_for('article', slug=featured_post.slug) }}"
+            class="read-more-button"
+        >
+            <span>Read More</span>
+            <span aria-hidden="true">→</span>
+        </a>
 
-                        </div>
 
-                    </article>
+        <div class="entry-meta">
 
+            <span class="meta-item">
+
+                <span
+                    class="meta-icon calendar-icon"
+                    aria-hidden="true"
+                ></span>
+
+                {{ featured_post.date }}
+
+            </span>
+
+            <span class="meta-item">
+
+                <span
+                    class="meta-icon clock-icon"
+                    aria-hidden="true"
+                ></span>
+
+                {{ featured_post.reading_time }}
+
+            </span>
+
+        </div>
+
+    </div>
+
+</article>
 
                     <!-- Recent Entries heading -->
 

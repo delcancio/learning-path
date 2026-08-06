@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="{{ post.description }}"
+    >
+
+    <title>{{ post.title }} | Learning Path</title>
+
+    <!-- Reuse the homepage design -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <!-- Article-specific design -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/article.css') }}"
+    >
+</head>
+
+
+<body>
+
+    <div class="website-wrapper">
+
+        <!-- =================================================
+             THREE-CIRCLE BROWSER BAR
+             ================================================= -->
+
+        <div class="browser-bar">
+
+            <div class="browser-circles">
+                <span class="browser-circle circle-red"></span>
+                <span class="browser-circle circle-blue"></span>
+                <span class="browser-circle circle-red"></span>
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             NAVBAR
+             ================================================= -->
+
+        <header class="site-header">
+
+            <div class="container navbar">
+
+                <a href="{{ url_for('home') }}" class="logo">
+                    Learning Path
+                </a>
+
+                <nav
+                    class="nav-links"
+                    aria-label="Main navigation"
+                >
+
+                    <a
+                        href="{{ url_for('home') }}"
+                        class="nav-link nav-red"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="{{ url_for('home') }}#blog"
+                        class="nav-link nav-blue"
+                    >
+                        Blog
+                    </a>
+
+                    <a
+                        href="{{ url_for('home') }}#about"
+                        class="nav-link nav-red"
+                    >
+                        About
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </header>
+
+
+        <main class="article-page">
+
+            <div class="container article-container">
+
+                <!-- =================================================
+                     ARTICLE HEADER
+                     ================================================= -->
+
+                <article class="article-hero-card">
+
+                    <div class="article-heading-content">
+
+                        <a
+                            href="{{ url_for('home') }}#blog"
+                            class="article-back-link"
+                        >
+                            <span aria-hidden="true">←</span>
+                            Back to Blog
+                        </a>
+
+                        <p class="article-category">
+                            {{ post.category }}
+                        </p>
+
+                        <h1 class="article-title">
+                            {{ post.title }}
+                        </h1>
+
+                        <!-- Same exact text as the homepage card -->
+                        <p class="article-lead">
+                            {{ post.description }}
+                        </p>
+
+
+                        <div class="article-meta">
+
+                            <span class="meta-item">
+
+                                <span
+                                    class="meta-icon calendar-icon"
+                                    aria-hidden="true"
+                                ></span>
+
+                                {{ post.date }}
+
+                            </span>
+
+                            <span class="meta-item">
+
+                                <span
+                                    class="meta-icon clock-icon"
+                                    aria-hidden="true"
+                                ></span>
+
+                                {{ post.reading_time }}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="article-cover-wrapper">
+
+                        <img
+                            src="{{ url_for('static', filename='images/' ~ post.image) }}"
+                            alt="{{ post.image_alt }}"
+                            class="article-cover"
+                        >
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     ARTICLE CONTENT LAYOUT
+                     ================================================= -->
+
+                <div class="article-layout">
+
+                    <!-- Table of contents -->
+
+                    <aside class="article-sidebar">
+
+                        <div class="article-toc">
+
+                            <p class="toc-label">
+                                In this lesson
+                            </p>
+
+                            <h2 class="toc-title">
+                                Contents
+                            </h2>
+
+                            <nav
+                                class="toc-links"
+                                aria-label="Article contents"
+                            >
+
+                                {% for section in post.sections %}
+
+                                    <a href="#{{ section.id }}">
+                                        {{ section.heading }}
+                                    </a>
+
+                                {% endfor %}
+
+                            </nav>
+
+                        </div>
+
+                    </aside>
+
+
+                    <!-- Main lesson -->
+
+                    <article class="article-body">
+
+                        <!-- Learning outcomes -->
+
+                        <section class="learning-outcomes">
+
+                            <p class="outcomes-label">
+                                Learning Outcomes
+                            </p>
+
+                            <h2>
+                                By the end of this lesson, you will be able to:
+                            </h2>
+
+                            <ul>
+
+                                {% for outcome in post.learning_outcomes %}
+
+                                    <li>{{ outcome }}</li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                        </section>
+
+
+                        <!-- Article sections -->
+
+                        {% for section in post.sections %}
+
+                            <section
+                                class="article-section"
+                                id="{{ section.id }}"
+                            >
+
+                                <h2>
+                                    {{ section.heading }}
+                                </h2>
+
+                                {% for paragraph in section.paragraphs %}
+
+                                    <p>
+                                        {{ paragraph }}
+                                    </p>
+
+                                {% endfor %}
+
+
+                                {% if section.bullets %}
+
+                                    <ul class="article-list">
+
+                                        {% for bullet in section.bullets %}
+
+                                            <li>
+                                                {{ bullet }}
+                                            </li>
+
+                                        {% endfor %}
+
+                                    </ul>
+
+                                {% endif %}
+
+                            </section>
+
+                        {% endfor %}
+
+
+                        <!-- End of article -->
+
+                        <div class="article-ending">
+
+                            <p>
+                                You have reached the end of this lesson.
+                            </p>
+
+                            <a
+                                href="{{ url_for('home') }}#blog"
+                                class="back-to-blog-button"
+                            >
+                                <span>Back to Blog</span>
+                                <span aria-hidden="true">→</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <!-- =================================================
+             SAME FOOTER DESIGN
+             ================================================= -->
+
+        <footer class="site-footer">
+
+            <div class="container footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="{{ url_for('home') }}"
+                        class="footer-logo"
+                    >
+                        Learning Path
+                    </a>
+
+                    <p class="footer-tagline">
+                        Every lesson shapes the path ahead.
+                    </p>
+
+                    <div class="footer-brand-line"></div>
+
+                    <p class="footer-description">
+                        More than a collection of posts, this is a timeline
+                        of my progress—built through projects, strengthened
+                        by lessons, and inspired by personal insights.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links-column">
+
+                    <h3 class="footer-heading">
+                        Quick Links
+                    </h3>
+
+                    <nav
+                        class="footer-links"
+                        aria-label="Footer navigation"
+                    >
+                        <a href="{{ url_for('home') }}">› Home</a>
+                        <a href="{{ url_for('home') }}#blog">› Blog</a>
+                        <a href="{{ url_for('home') }}#about">› About</a>
+                    </nav>
+
+                </div>
+
+
+                <div class="footer-contact">
+
+                    <h3 class="footer-heading">
+                        Contact
+                    </h3>
+
+                    <div class="social-links">
+
+                        <!-- Email -->
+
+                        <a
+                            href="mailto:deljoycancio@gmail.com"
+                            class="social-link"
+                            aria-label="Send an email"
+                            title="Email"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm9 7 8-5H4l8 5zm0 2.3L3 8.7V17h18V8.7l-9 5.6z"
+                                ></path>
+                            </svg>
+                        </a>
+
+
+                        <!-- GitHub -->
+
+                        <a
+                            href="https://github.com/yourusername"
+                            class="social-link"
+                            aria-label="Visit GitHub profile"
+                            title="GitHub"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M12 .7a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.3c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.4 5.9.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .7z"
+                                ></path>
+                            </svg>
+                        </a>
+
+
+                        <!-- Facebook -->
+
+                        <a
+                            href="https://facebook.com/yourusername"
+                            class="social-link"
+                            aria-label="Visit Facebook profile"
+                            title="Facebook"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M13.7 22v-9h3l.5-3.5h-3.5V7.3c0-1 .3-1.7 1.8-1.7h1.9V2.4c-.3 0-1.5-.1-2.8-.1-2.8 0-4.7 1.7-4.7 4.8v2.4H7V13h2.9v9h3.8z"
+                                ></path>
+                            </svg>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Learning Path. All rights reserved.
+                </p>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
