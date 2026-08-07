@@ -95,6 +95,7 @@ main {
 .website-wrapper {
     width: 100%;
     min-height: 100vh;
+    padding-top: 28px;
 
     /*
        Must remain visible so the sticky browser bar works.
@@ -116,8 +117,10 @@ main {
    ========================================================= */
 
 .browser-bar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 9999;
 
     width: 100%;
