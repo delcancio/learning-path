@@ -2195,3 +2195,67 @@ main {
         transform: none !important;
     }
 }
+
+/* =========================================================
+   HIGH QUALITY IMAGE DISPLAY
+   Hero + Featured + Recent Entries
+   ========================================================= */
+
+
+/* HERO IMAGE */
+
+.hero-image {
+    height: auto;
+
+    image-rendering: auto;
+    image-rendering: -webkit-optimize-contrast;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    object-fit: contain;
+}
+
+
+/* FEATURED IMAGE */
+
+.featured-image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    image-rendering: auto;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* RECENT ENTRY IMAGES */
+
+.recent-image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    image-rendering: auto;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* Prevent unnecessary image distortion */
+
+.featured-image-wrapper,
+.recent-image-wrapper {
+    overflow: hidden;
+}
