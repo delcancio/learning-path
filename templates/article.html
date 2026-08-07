@@ -97,6 +97,308 @@
         }
     </style>
 
+
+    <!-- Remember selected theme before the page is painted -->
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem("learningPathTheme") === "dark") {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                }
+            } catch (error) {}
+        })();
+    </script>
+
+
+    <!-- =========================================================
+         LIGHT / NIGHT MODE
+         ========================================================= -->
+    <style>
+        html:not([data-theme="dark"]) body,
+        html:not([data-theme="dark"]) .website-wrapper,
+        html:not([data-theme="dark"]) .site-header,
+        html:not([data-theme="dark"]) .hero,
+        html:not([data-theme="dark"]) .entries-section,
+        html:not([data-theme="dark"]) .about-section,
+        html:not([data-theme="dark"]) .article-page,
+        html:not([data-theme="dark"]) .profile-page {
+            background-color: #FFFBF3;
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 54px;
+            height: 22px;
+            margin-left: auto;
+            margin-right: 13px;
+            padding: 0;
+            flex: 0 0 54px;
+            border: 1px solid rgba(84, 27, 27, 0.18);
+            border-radius: 999px;
+            background: linear-gradient(180deg, #FFFDF8 0%, #F1EAE0 100%);
+            box-shadow:
+                inset 0 1px 3px rgba(84, 27, 27, 0.08),
+                0 1px 4px rgba(0, 0, 0, 0.08);
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            transition:
+                background 0.30s ease,
+                border-color 0.30s ease,
+                box-shadow 0.30s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .theme-toggle:hover {
+            box-shadow:
+                inset 0 1px 3px rgba(84, 27, 27, 0.08),
+                0 2px 8px rgba(84, 27, 27, 0.15);
+        }
+
+        .theme-toggle:focus-visible {
+            outline: 2px solid rgba(13, 71, 161, 0.45);
+            outline-offset: 2px;
+        }
+
+        .theme-toggle-thumb {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #FFF9EE;
+            box-shadow: 0 2px 5px rgba(84, 27, 27, 0.18);
+            transform: translateX(0);
+            transition:
+                transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                background-color 0.30s ease,
+                box-shadow 0.30s ease;
+        }
+
+        .theme-icon {
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            transition:
+                opacity 0.25s ease,
+                transform 0.35s ease;
+        }
+
+        .theme-sun {
+            fill: #E6AC28;
+            stroke: #9A3333;
+            stroke-width: 1.45;
+            stroke-linecap: round;
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        .theme-moon {
+            fill: #FFF4D9;
+            stroke: #FFF4D9;
+            stroke-width: 1.2;
+            opacity: 0;
+            transform: rotate(-30deg) scale(0.6);
+        }
+
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --page-bg: #191C27;
+            --outside-bg: #141720;
+            --red: #B85F63;
+            --dark-red: #D99A9C;
+            --blue: #7F9FD8;
+            --blue-hover: #92AFE1;
+            --black: #ECE8E1;
+        }
+
+        html[data-theme="dark"] body {
+            background-color: #141720;
+            color: #ECE8E1;
+        }
+
+        html[data-theme="dark"] .website-wrapper,
+        html[data-theme="dark"] .site-header,
+        html[data-theme="dark"] .hero,
+        html[data-theme="dark"] .entries-section,
+        html[data-theme="dark"] .about-section,
+        html[data-theme="dark"] .article-page,
+        html[data-theme="dark"] .profile-page {
+            background: linear-gradient(180deg, #1B1E2A 0%, #181B25 100%);
+            color: #ECE8E1;
+        }
+
+        html[data-theme="dark"] .browser-bar {
+            background-color: #292C38;
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.04),
+                0 3px 9px rgba(0, 0, 0, 0.16);
+        }
+
+        html[data-theme="dark"] .theme-toggle {
+            border-color: rgba(127, 159, 216, 0.34);
+            background: linear-gradient(180deg, #243865 0%, #1D2D55 100%);
+            box-shadow:
+                inset 0 1px 4px rgba(0, 0, 0, 0.25),
+                0 2px 7px rgba(0, 0, 0, 0.16);
+        }
+
+        html[data-theme="dark"] .theme-toggle-thumb {
+            background-color: #36518C;
+            transform: translateX(32px);
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.30);
+        }
+
+        html[data-theme="dark"] .theme-sun {
+            opacity: 0;
+            transform: rotate(45deg) scale(0.5);
+        }
+
+        html[data-theme="dark"] .theme-moon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        html[data-theme="dark"] .logo,
+        html[data-theme="dark"] .entries-heading h2 {
+            color: #F1EDE6;
+        }
+
+        html[data-theme="dark"] .hero-description,
+        html[data-theme="dark"] .featured-description,
+        html[data-theme="dark"] .recent-card-description,
+        html[data-theme="dark"] .about-description,
+        html[data-theme="dark"] .article-lead,
+        html[data-theme="dark"] .article-body,
+        html[data-theme="dark"] .profile-intro-text,
+        html[data-theme="dark"] .section-description {
+            color: #DDD9D2;
+        }
+
+        html[data-theme="dark"] .hero-title,
+        html[data-theme="dark"] .featured-title,
+        html[data-theme="dark"] .recent-card-title,
+        html[data-theme="dark"] .about-title,
+        html[data-theme="dark"] .article-title,
+        html[data-theme="dark"] .article-section h2,
+        html[data-theme="dark"] .profile-name,
+        html[data-theme="dark"] .profile-section-heading h2 {
+            color: #E5B0B2;
+        }
+
+        html[data-theme="dark"] .title-blue,
+        html[data-theme="dark"] .profile-eyebrow,
+        html[data-theme="dark"] .section-label,
+        html[data-theme="dark"] .article-category,
+        html[data-theme="dark"] .toc-label {
+            color: #94B1E5;
+        }
+
+        html[data-theme="dark"] .featured-card,
+        html[data-theme="dark"] .recent-card,
+        html[data-theme="dark"] .about-card,
+        html[data-theme="dark"] .article-hero-card,
+        html[data-theme="dark"] .article-toc,
+        html[data-theme="dark"] .learning-outcomes,
+        html[data-theme="dark"] .detail-card,
+        html[data-theme="dark"] .interest-card,
+        html[data-theme="dark"] .profile-hero {
+            background-color: #242733;
+            border-color: rgba(255, 255, 255, 0.075);
+        }
+
+        html[data-theme="dark"] .article-body p,
+        html[data-theme="dark"] .article-body li,
+        html[data-theme="dark"] .article-ending p,
+        html[data-theme="dark"] .toc-links a,
+        html[data-theme="dark"] .detail-card h3,
+        html[data-theme="dark"] .interest-card h3,
+        html[data-theme="dark"] .profile-status,
+        html[data-theme="dark"] .interest-card p,
+        html[data-theme="dark"] .detail-label {
+            color: #E5E1DA;
+        }
+
+        html[data-theme="dark"] .profile-back-link {
+            color: #DFA5A7;
+        }
+
+        html[data-theme="dark"] .profile-back-arrow {
+            background-color: #242733;
+            color: #DFA5A7;
+            border-color: rgba(223, 165, 167, 0.30);
+        }
+
+        html[data-theme="dark"] .profile-journey {
+            background: linear-gradient(135deg, #552F3C 0%, #28395E 100%);
+        }
+
+        html[data-theme="dark"] img {
+            filter: none;
+        }
+
+        body,
+        .website-wrapper,
+        .site-header,
+        .hero,
+        .entries-section,
+        .about-section,
+        .article-page,
+        .profile-page,
+        .browser-bar,
+        .featured-card,
+        .recent-card,
+        .about-card,
+        .article-hero-card,
+        .article-toc,
+        .learning-outcomes,
+        .profile-hero,
+        .detail-card,
+        .interest-card {
+            transition:
+                background-color 0.30s ease,
+                background 0.30s ease,
+                color 0.30s ease,
+                border-color 0.30s ease,
+                box-shadow 0.30s ease;
+        }
+
+        @media (max-width: 560px) {
+            .theme-toggle {
+                width: 50px;
+                height: 21px;
+                flex-basis: 50px;
+                margin-right: 9px;
+            }
+
+            .theme-toggle-thumb {
+                width: 17px;
+                height: 17px;
+            }
+
+            html[data-theme="dark"] .theme-toggle-thumb {
+                transform: translateX(29px);
+            }
+
+            .theme-icon {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .theme-toggle,
+            .theme-toggle-thumb,
+            .theme-icon {
+                transition: none;
+            }
+        }
+    </style>
+
 </head>
 
 
@@ -116,6 +418,38 @@
                 <span class="browser-circle circle-blue"></span>
                 <span class="browser-circle circle-red"></span>
             </div>
+
+
+            <!-- Light / Night Mode -->
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Switch to night mode"
+                aria-pressed="false"
+                title="Switch to night mode"
+            >
+                <span class="theme-toggle-thumb" aria-hidden="true">
+                    <svg
+                        class="theme-icon theme-sun"
+                        viewBox="0 0 24 24"
+                    >
+                        <circle cx="12" cy="12" r="4.2"></circle>
+                        <path
+                            d="M12 2.5v2.1 M12 19.4v2.1 M4.6 4.6l1.5 1.5 M17.9 17.9l1.5 1.5 M2.5 12h2.1 M19.4 12h2.1 M4.6 19.4l1.5-1.5 M17.9 6.1l1.5-1.5"
+                        ></path>
+                    </svg>
+
+                    <svg
+                        class="theme-icon theme-moon"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            d="M19.3 15.4A8.2 8.2 0 0 1 8.6 4.7 8.4 8.4 0 1 0 19.3 15.4Z"
+                        ></path>
+                    </svg>
+                </span>
+            </button>
 
             <!-- Reading progress: article pages only -->
             <div class="reading-progress" aria-hidden="true">
@@ -547,6 +881,77 @@
             updateReadingProgress();
             window.addEventListener("scroll", updateReadingProgress, { passive: true });
             window.addEventListener("resize", updateReadingProgress);
+        });
+    </script>
+
+
+    <!-- Light / Night Mode -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeToggle = document.getElementById("themeToggle");
+
+            if (!themeToggle) {
+                return;
+            }
+
+            const root = document.documentElement;
+
+            function isDarkMode() {
+                return root.getAttribute("data-theme") === "dark";
+            }
+
+            function updateToggle() {
+                const dark = isDarkMode();
+
+                themeToggle.setAttribute(
+                    "aria-pressed",
+                    dark ? "true" : "false"
+                );
+
+                themeToggle.setAttribute(
+                    "aria-label",
+                    dark
+                        ? "Switch to light mode"
+                        : "Switch to night mode"
+                );
+
+                themeToggle.setAttribute(
+                    "title",
+                    dark
+                        ? "Switch to light mode"
+                        : "Switch to night mode"
+                );
+            }
+
+            function saveTheme(theme) {
+                try {
+                    localStorage.setItem(
+                        "learningPathTheme",
+                        theme
+                    );
+                } catch (error) {}
+            }
+
+            themeToggle.addEventListener("click", function () {
+                const nextTheme =
+                    isDarkMode() ? "light" : "dark";
+
+                if (nextTheme === "dark") {
+                    root.setAttribute(
+                        "data-theme",
+                        "dark"
+                    );
+                } else {
+                    root.removeAttribute(
+                        "data-theme"
+                    );
+                }
+
+                saveTheme(nextTheme);
+                updateToggle();
+            });
+
+            updateToggle();
         });
     </script>
 
