@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="About Deljoy Cancio, a third-year BSIT student at FSUU who enjoys technology, design, and continuous learning."
+    >
+
+    <title>About Me | Learning Path</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/profile.css') }}"
+    >
+</head>
+
+
+<body>
+
+    <div class="website-wrapper">
+
+        <!-- Browser Bar -->
+
+        <div class="browser-bar">
+
+            <div class="browser-circles">
+                <span class="browser-circle circle-red"></span>
+                <span class="browser-circle circle-blue"></span>
+                <span class="browser-circle circle-red"></span>
+            </div>
+
+        </div>
+
+
+        <!-- Navbar -->
+
+        <header class="site-header">
+
+            <div class="container navbar">
+
+                <a
+                    href="{{ url_for('home') }}"
+                    class="logo"
+                >
+                    Learning Path
+                </a>
+
+                <nav
+                    class="nav-links"
+                    aria-label="Main navigation"
+                >
+
+                    <a
+                        href="{{ url_for('home') }}"
+                        class="nav-link nav-red"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="{{ url_for('home') }}#blog"
+                        class="nav-link nav-blue"
+                    >
+                        Blog
+                    </a>
+
+                    <a
+                        href="{{ url_for('about') }}"
+                        class="nav-link nav-red profile-active-link"
+                    >
+                        About
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </header>
+
+
+        <!-- Profile Page -->
+
+        <main class="profile-page">
+
+            <div class="container profile-container">
+
+                <!-- Back Navigation -->
+
+                <div class="profile-top-navigation">
+
+                    <a
+                        href="{{ url_for('home') }}"
+                        class="profile-back-link"
+                        aria-label="Go back to the homepage"
+                    >
+                        <span class="profile-back-arrow" aria-hidden="true">←</span>
+                        <span>Back to Home</span>
+                    </a>
+
+                    <span
+                        class="profile-back-line"
+                        aria-hidden="true"
+                    ></span>
+
+                </div>
+
+
+                <!-- Main Profile Card -->
+
+                <section class="profile-hero">
+
+                    <!-- Pixel Stickers -->
+
+                    <span
+                        class="pixel-sticker sticker-star"
+                        aria-hidden="true"
+                    >
+                        ★
+                    </span>
+
+                    <span
+                        class="pixel-sticker sticker-music"
+                        aria-hidden="true"
+                    >
+                        ♪
+                    </span>
+
+                    <span
+                        class="pixel-sticker sticker-film"
+                        aria-hidden="true"
+                    >
+                        ▶
+                    </span>
+
+                    <span
+                        class="pixel-sticker sticker-cursor"
+                        aria-hidden="true"
+                    >
+                        ↖
+                    </span>
+
+
+                    <!-- Profile Image -->
+
+                    <div class="profile-image-column">
+
+                        <div class="profile-image-frame">
+
+                            <img
+                                src="{{ url_for('static', filename='images/about-avatar.png') }}"
+                                alt="Profile illustration of Deljoy Cancio"
+                                class="profile-image"
+                            >
+
+                        </div>
+
+                        <div class="profile-status">
+                            <span class="status-dot"></span>
+                            Currently learning and creating
+                        </div>
+
+                    </div>
+
+
+                    <!-- Introduction -->
+
+                    <div class="profile-introduction">
+
+                        <p class="profile-eyebrow">
+                            About Me
+                        </p>
+
+                        <h1 class="profile-name">
+                            Hi, I’m
+                            <span>Deljoy Cancio!</span>
+                        </h1>
+
+                        <p class="profile-intro-text">
+    I’m a third-year Bachelor of Science in Information Technology
+    student at FSUU. I enjoy designing and turning simple ideas into
+    clean, meaningful, and visually engaging digital experiences.
+</p>
+
+<p class="profile-intro-text">
+    I’m a cheerful person who enjoys learning new things. I may not
+    always learn quickly, and failures can sometimes discourage me,
+    but I continue trying, improving, and learning from every experience.
+    Through Learning Path, I share the projects, lessons, and insights
+    that shape my journey in technology and design.
+</p>
+
+                        <div class="profile-buttons">
+
+                            <a
+                                href="{{ url_for('home') }}#blog"
+                                class="profile-primary-button"
+                            >
+                                Explore My Entries
+                                <span aria-hidden="true">→</span>
+                            </a>
+
+                            <a
+                                href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=deljoy.cancio@urios.edu.ph&amp;su=Message%20from%20Learning%20Path"
+                                class="profile-secondary-button"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Compose an email to Deljoy Cancio in Gmail"
+                            >
+                                Contact Me
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Personal Details -->
+
+                <section class="profile-section">
+
+                    <div class="profile-section-heading">
+
+                        <p class="section-label">
+                            Personal Information
+                        </p>
+
+                        <h2>
+                            My Details
+                        </h2>
+
+                    </div>
+
+
+                    <div class="details-grid">
+
+                        <article class="detail-card">
+
+                            <span class="detail-number">
+                                01
+                            </span>
+
+                            <p class="detail-label">
+                                Full Name
+                            </p>
+
+                            <h3>
+                                Deljoy Cancio
+                            </h3>
+
+                        </article>
+
+
+                        <article class="detail-card">
+
+                            <span class="detail-number">
+                                02
+                            </span>
+
+                            <p class="detail-label">
+                                Program
+                            </p>
+
+                            <h3>
+                                BS Information Technology
+                            </h3>
+
+                        </article>
+
+
+                        <article class="detail-card">
+
+                            <span class="detail-number">
+                                03
+                            </span>
+
+                            <p class="detail-label">
+                                Year Level
+                            </p>
+
+                            <h3>
+                                Third Year Student
+                            </h3>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- Interests -->
+
+                <section class="profile-section interests-section">
+
+                    <div class="profile-section-heading">
+
+                        <p class="section-label">
+                            Beyond Academics
+                        </p>
+
+                        <h2>
+                            Things I Love
+                        </h2>
+
+                        <p class="section-description">
+                            These interests help me stay creative, inspired,
+                            and motivated outside my academic work.
+                        </p>
+
+                    </div>
+
+
+                    <div class="interests-grid">
+
+                        <article class="interest-card">
+
+                            <div class="interest-icon">
+                                ✦
+                            </div>
+
+                            <div>
+
+                                <p class="interest-category">
+                                    Creative Interest
+                                </p>
+
+                                <h3>
+                                    Designing
+                                </h3>
+
+                                <p>
+                                    I enjoy organizing visual elements,
+                                    experimenting with layouts, and creating
+                                    interfaces that are both useful and
+                                    visually appealing.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="interest-card">
+
+                            <div class="interest-icon">
+                                ♫
+                            </div>
+
+                            <div>
+
+                                <p class="interest-category">
+                                    Everyday Inspiration
+                                </p>
+
+                                <h3>
+                                    Music
+                                </h3>
+
+                                <p>
+                                    Music helps me focus, relax, and find new
+                                    inspiration while studying, designing, or
+                                    working on personal projects.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="interest-card">
+
+                            <div class="interest-icon">
+                                ▷
+                            </div>
+
+                            <div>
+
+                                <p class="interest-category">
+                                    Favorite Entertainment
+                                </p>
+
+                                <h3>
+                                    Action and Horror Movies
+                                </h3>
+
+                                <p>
+                                    I enjoy the excitement of action films and
+                                    the suspense, mystery, and atmosphere found
+                                    in horror movies.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Learning Journey -->
+
+                <section class="profile-journey">
+
+                    <div class="journey-content">
+
+                        <p class="section-label">
+                            My Learning Journey
+                        </p>
+
+                        <h2>
+                            Learning, creating, and improving one project at a time.
+                        </h2>
+
+                        <p>
+                            My goal is to continue developing my skills,
+                            explore new technologies, and create digital
+                            experiences that are clear, useful, and meaningful.
+                            Every project gives me another opportunity to
+                            practice, solve problems, and become a better
+                            information technology student.
+                        </p>
+
+                    </div>
+
+
+                    <div class="journey-tags">
+
+                        <span>Web Development</span>
+                        <span>UI Design</span>
+                        <span>Information Technology</span>
+                        <span>Continuous Learning</span>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+
+        <!-- Maintain Same Footer -->
+
+        <footer class="site-footer">
+
+            <div class="container footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="{{ url_for('home') }}"
+                        class="footer-logo"
+                    >
+                        Learning Path
+                    </a>
+
+                    <p class="footer-tagline">
+                        Every lesson shapes the path ahead.
+                    </p>
+
+                    <div class="footer-brand-line"></div>
+
+                    <p class="footer-description">
+                        More than a collection of posts, this is a timeline
+                        of my progress—built through projects, strengthened
+                        by lessons, and inspired by personal insights.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links-column">
+
+                    <h3 class="footer-heading">
+                        Quick Links
+                    </h3>
+
+                    <nav
+                        class="footer-links"
+                        aria-label="Footer navigation"
+                    >
+                        <a href="{{ url_for('home') }}">› Home</a>
+                        <a href="{{ url_for('home') }}#blog">› Blog</a>
+                        <a href="{{ url_for('about') }}">› About</a>
+                    </nav>
+
+                </div>
+
+
+                <div class="footer-contact">
+
+                    <h3 class="footer-heading">
+                        Contact
+                    </h3>
+
+                    <div class="social-links">
+
+                        <!-- Email -->
+
+                        <a
+                            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=deljoy.cancio@urios.edu.ph&amp;su=Message%20from%20Learning%20Path"
+                            class="social-link"
+                            aria-label="Compose an email to Deljoy Cancio in Gmail"
+                            title="Email"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm9 7 8-5H4l8 5zm0 2.3L3 8.7V17h18V8.7l-9 5.6z"
+                                ></path>
+                            </svg>
+                        </a>
+
+
+                        <!-- GitHub -->
+
+                        <a
+                            href="https://github.com/delcancio"
+                            class="social-link"
+                            aria-label="Visit Deljoy Cancio's GitHub profile"
+                            title="GitHub"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 .7a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.3c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.4 5.9.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .7z"
+                                ></path>
+                            </svg>
+                        </a>
+
+
+                        <!-- Facebook -->
+
+                        <a
+                            href="https://www.facebook.com/share/1BW9eo71Fx/"
+                            class="social-link"
+                            aria-label="Visit Deljoy Cancio's Facebook profile"
+                            title="Facebook"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M13.7 22v-9h3l.5-3.5h-3.5V7.3c0-1 .3-1.7 1.8-1.7h1.9V2.4c-.3 0-1.5-.1-2.8-.1-2.8 0-4.7 1.7-4.7 4.8v2.4H7V13h2.9v9h3.8z"
+                                ></path>
+                            </svg>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Learning Path. All rights reserved.
+                </p>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

@@ -29,5 +29,10 @@ def article(slug):
     )
 
 
+@app.route("/about")
+def about():
+    return render_template("profile.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

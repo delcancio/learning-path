@@ -1,0 +1,869 @@
+/* =========================================================
+   PROFILE / ABOUT PAGE
+   ========================================================= */
+
+.profile-page {
+    min-height: 100vh;
+    padding: 48px 0 95px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fbf8f5 0%,
+            #f5efeb 100%
+        );
+}
+
+.profile-container {
+    position: relative;
+}
+
+
+/* =========================================================
+   PROFILE HERO
+   ========================================================= */
+
+.profile-hero {
+    position: relative;
+
+    min-height: 525px;
+    padding: 58px;
+
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    align-items: center;
+    gap: 65px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(84, 27, 27, 0.14);
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #fffdfb 100%
+        );
+
+    box-shadow:
+        0 5px 0 rgba(84, 27, 27, 0.7),
+        0 18px 42px rgba(84, 27, 27, 0.09);
+}
+
+
+/* =========================================================
+   PIXEL STICKERS
+   ========================================================= */
+
+.pixel-sticker {
+    position: absolute;
+    z-index: 3;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid #1e1e1e;
+    border-radius: 4px;
+
+    color: #ffffff;
+
+    font-family: "Courier New", monospace;
+    font-size: 23px;
+    font-weight: 900;
+
+    box-shadow:
+        5px 5px 0 #1e1e1e;
+
+    image-rendering: pixelated;
+}
+
+.sticker-star {
+    top: 35px;
+    left: 38px;
+
+    background-color: var(--red, #9a3333);
+    transform: rotate(-8deg);
+}
+
+.sticker-music {
+    top: 40px;
+    right: 48px;
+
+    background-color: var(--blue, #0d47a1);
+    transform: rotate(8deg);
+}
+
+.sticker-film {
+    right: 46px;
+    bottom: 38px;
+
+    background-color: #252525;
+    transform: rotate(-5deg);
+}
+
+.sticker-cursor {
+    bottom: 34px;
+    left: 42px;
+
+    background-color: #d99b33;
+    transform: rotate(7deg);
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+   ========================================================= */
+
+.profile-image-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image-frame {
+    position: relative;
+
+    width: 290px;
+    height: 340px;
+    padding: 18px;
+
+    border: 2px solid var(--dark-red, #541b1b);
+    border-radius: 22px;
+
+    background-color: #f4e8e3;
+
+    box-shadow:
+        12px 12px 0 rgba(13, 71, 161, 0.13);
+}
+
+.profile-image-frame::before {
+    content: "";
+
+    position: absolute;
+    top: 13px;
+    left: 13px;
+
+    width: 14px;
+    height: 14px;
+
+    background-color: var(--red, #9a3333);
+
+    box-shadow:
+        22px 0 0 var(--blue, #0d47a1),
+        44px 0 0 var(--red, #9a3333);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 14px;
+
+    object-fit: cover;
+    object-position: center;
+
+    background-color: #ffffff;
+}
+
+.profile-status {
+    margin-top: 22px;
+    padding: 9px 14px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px solid rgba(84, 27, 27, 0.12);
+    border-radius: 999px;
+
+    background-color: #ffffff;
+    color: #555555;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background-color: #2d9b62;
+
+    box-shadow: 0 0 0 4px rgba(45, 155, 98, 0.14);
+}
+
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
+
+.profile-introduction {
+    max-width: 720px;
+}
+
+.profile-eyebrow,
+.section-label {
+    margin-bottom: 12px;
+
+    color: var(--blue, #0d47a1);
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.profile-name {
+    margin-bottom: 25px;
+
+    color: #202020;
+
+    font-family: "Cardo", Georgia, serif;
+    font-size: clamp(47px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 1.04;
+
+    letter-spacing: -1.7px;
+}
+
+.profile-name span {
+    color: var(--dark-red, #541b1b);
+}
+
+.profile-intro-text {
+    max-width: 690px;
+    margin-bottom: 17px;
+
+    color: #3f3f3f;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.profile-buttons {
+    margin-top: 31px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.profile-primary-button,
+.profile-secondary-button {
+    min-height: 44px;
+    padding: 0 19px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    border-radius: 7px;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    transition:
+        transform 160ms ease,
+        background-color 160ms ease;
+}
+
+.profile-primary-button {
+    background-color: var(--blue, #0d47a1);
+    color: #ffffff;
+
+    box-shadow: 0 5px 11px rgba(13, 71, 161, 0.18);
+}
+
+.profile-secondary-button {
+    border: 1px solid rgba(84, 27, 27, 0.25);
+
+    background-color: #ffffff;
+    color: var(--dark-red, #541b1b);
+}
+
+.profile-primary-button:hover,
+.profile-secondary-button:hover {
+    transform: translateY(-2px);
+}
+
+.profile-primary-button:hover {
+    background-color: #093a84;
+}
+
+
+/* =========================================================
+   GENERAL PROFILE SECTIONS
+   ========================================================= */
+
+.profile-section {
+    margin-top: 40px;
+    padding: 50px;
+
+    border: 1px solid rgba(84, 27, 27, 0.11);
+    border-radius: 23px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 13px 30px rgba(84, 27, 27, 0.06);
+}
+
+.profile-section-heading {
+    margin-bottom: 31px;
+}
+
+.profile-section-heading h2,
+.profile-journey h2 {
+    color: var(--dark-red, #541b1b);
+
+    font-family: "Cardo", Georgia, serif;
+    font-size: 38px;
+    line-height: 1.15;
+}
+
+.section-description {
+    max-width: 640px;
+    margin-top: 12px;
+
+    color: #666666;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   DETAILS GRID
+   ========================================================= */
+
+.details-grid {
+    width: 100%;
+    max-width: 1050px;
+    margin-right: auto;
+    margin-left: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.detail-card {
+    position: relative;
+
+    min-height: 165px;
+    padding: 24px 21px;
+
+    overflow: hidden;
+
+    border: 1px solid #e4ddd8;
+    border-radius: 14px;
+
+    background-color: #fcfaf8;
+}
+
+.detail-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(13, 71, 161, 0.28);
+
+    box-shadow: 0 10px 22px rgba(13, 71, 161, 0.08);
+}
+
+.detail-number {
+    display: block;
+    margin-bottom: 28px;
+
+    color: var(--red, #9a3333);
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.detail-label {
+    margin-bottom: 7px;
+
+    color: #7a7a7a;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.detail-card h3 {
+    color: #282828;
+
+    font-family: "Cardo", Georgia, serif;
+    font-size: 21px;
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   INTERESTS
+   ========================================================= */
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 19px;
+}
+
+.interest-card {
+    min-height: 265px;
+    padding: 26px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+
+    border: 1px solid #ded8d3;
+    border-radius: 16px;
+
+    background-color: #faf8f6;
+
+    transition:
+        transform 170ms ease,
+        box-shadow 170ms ease;
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 13px 25px rgba(84, 27, 27, 0.08);
+}
+
+.interest-icon {
+    width: 47px;
+    height: 47px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #1f1f1f;
+    border-radius: 4px;
+
+    background-color: var(--red, #9a3333);
+    color: #ffffff;
+
+    font-family: "Courier New", monospace;
+    font-size: 20px;
+    font-weight: 900;
+
+    box-shadow: 4px 4px 0 #1f1f1f;
+}
+
+.interest-card:nth-child(2) .interest-icon {
+    background-color: var(--blue, #0d47a1);
+}
+
+.interest-card:nth-child(3) .interest-icon {
+    background-color: #272727;
+}
+
+.interest-category {
+    margin-bottom: 8px;
+
+    color: var(--blue, #0d47a1);
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.interest-card h3 {
+    margin-bottom: 12px;
+
+    color: var(--dark-red, #541b1b);
+
+    font-family: "Cardo", Georgia, serif;
+    font-size: 25px;
+}
+
+.interest-card p:last-child {
+    color: #555555;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   JOURNEY SECTION
+   ========================================================= */
+
+.profile-journey {
+    margin-top: 40px;
+    padding: 53px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+    align-items: center;
+    gap: 60px;
+
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #421717 0%,
+            #672424 100%
+        );
+
+    color: #ffffff;
+
+    box-shadow: 0 15px 32px rgba(84, 27, 27, 0.17);
+}
+
+.profile-journey .section-label {
+    color: #a9c9fa;
+}
+
+.profile-journey h2 {
+    max-width: 720px;
+    margin-bottom: 20px;
+
+    color: #ffffff;
+}
+
+.profile-journey p:last-child {
+    max-width: 760px;
+
+    color: rgba(255, 255, 255, 0.79);
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.journey-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.journey-tags span {
+    padding: 10px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ACTIVE ABOUT LINK
+   ========================================================= */
+
+.profile-active-link {
+    position: relative;
+}
+
+.profile-active-link::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+
+    height: 2px;
+
+    background-color: currentColor;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+    .profile-hero {
+        grid-template-columns: 290px minmax(0, 1fr);
+        gap: 42px;
+
+        padding: 48px 38px;
+    }
+
+    .profile-image-frame {
+        width: 250px;
+        height: 305px;
+    }
+
+    .details-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .profile-journey {
+        grid-template-columns: 1fr;
+        gap: 33px;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+    .profile-page {
+        padding-top: 30px;
+    }
+
+    .profile-hero {
+        grid-template-columns: 1fr;
+        gap: 42px;
+
+        padding: 55px 32px;
+    }
+
+    .profile-image-column {
+        order: 1;
+    }
+
+    .profile-introduction {
+        order: 2;
+
+        text-align: center;
+    }
+
+    .profile-buttons {
+        justify-content: center;
+    }
+
+    .profile-eyebrow {
+        text-align: center;
+    }
+
+    .profile-intro-text {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .interest-card {
+        min-height: auto;
+    }
+
+    .sticker-star {
+        top: 25px;
+        left: 25px;
+    }
+
+    .sticker-music {
+        top: 25px;
+        right: 25px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 560px) {
+    .profile-page {
+        padding: 20px 0 65px;
+    }
+
+    .profile-hero {
+        padding: 70px 20px 50px;
+
+        border-radius: 19px;
+    }
+
+    .profile-image-frame {
+        width: 225px;
+        height: 280px;
+    }
+
+    .profile-name {
+        font-size: 43px;
+    }
+
+    .profile-intro-text {
+        font-size: 14px;
+    }
+
+    .pixel-sticker {
+        width: 41px;
+        height: 41px;
+
+        font-size: 18px;
+    }
+
+    .sticker-film,
+    .sticker-cursor {
+        display: none;
+    }
+
+    .profile-section {
+        margin-top: 25px;
+        padding: 35px 20px;
+
+        border-radius: 18px;
+    }
+
+    .profile-section-heading h2,
+    .profile-journey h2 {
+        font-size: 31px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-card {
+        min-height: 145px;
+    }
+
+    .profile-journey {
+        margin-top: 25px;
+        padding: 39px 23px;
+
+        border-radius: 18px;
+    }
+
+    .profile-buttons {
+        flex-direction: column;
+    }
+
+    .profile-primary-button,
+    .profile-secondary-button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   PROFILE BACK NAVIGATION
+   ========================================================= */
+
+.profile-top-navigation {
+    width: 100%;
+    margin-bottom: 23px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-back-link {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+
+    color: var(--dark-red, #541b1b);
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+
+    transition:
+        color 160ms ease,
+        transform 160ms ease;
+}
+
+.profile-back-arrow {
+    width: 37px;
+    height: 37px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(84, 27, 27, 0.3);
+    border-radius: 50%;
+
+    background-color: #ffffff;
+    color: var(--dark-red, #541b1b);
+
+    font-size: 18px;
+    line-height: 1;
+
+    box-shadow: 0 4px 10px rgba(84, 27, 27, 0.08);
+
+    transition:
+        background-color 160ms ease,
+        color 160ms ease,
+        transform 160ms ease;
+}
+
+.profile-back-line {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(84, 27, 27, 0.32),
+            rgba(84, 27, 27, 0.05)
+        );
+}
+
+.profile-back-link:hover {
+    color: var(--blue, #0d47a1);
+    transform: translateX(-3px);
+}
+
+.profile-back-link:hover .profile-back-arrow {
+    background-color: var(--blue, #0d47a1);
+    border-color: var(--blue, #0d47a1);
+    color: #ffffff;
+
+    transform: translateX(-2px);
+}
+
+
+/* Mobile */
+
+@media (max-width: 560px) {
+    .profile-top-navigation {
+        margin-bottom: 17px;
+        gap: 14px;
+    }
+
+    .profile-back-arrow {
+        width: 34px;
+        height: 34px;
+    }
+
+    .profile-back-link {
+        font-size: 11px;
+    }
+}
