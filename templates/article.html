@@ -27,10 +27,81 @@
         rel="stylesheet"
         href="{{ url_for('static', filename='css/article.css') }}"
     >
+
+    <!-- Smooth article-only reading experience -->
+    <style>
+        html { scroll-behavior: smooth; }
+
+        .article-reading-page .article-page {
+            animation: articlePageEntrance 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .article-reading-page .article-hero-card {
+            animation: articleHeroEntrance 0.70s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+        }
+
+        .article-reading-page .article-layout {
+            animation: articlePageEntrance 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+        }
+
+        @keyframes articlePageEntrance {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes articleHeroEntrance {
+            from { opacity: 0; transform: translateY(15px) scale(0.99); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .article-reading-page .browser-bar {
+            position: sticky;
+        }
+
+        .reading-progress {
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 3px;
+            overflow: hidden;
+            background-color: rgba(84, 27, 27, 0.10);
+            pointer-events: none;
+        }
+
+        .reading-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #0D47A1 0%, #496DA4 45%, #9A3333 100%);
+            box-shadow: 0 0 8px rgba(13, 71, 161, 0.25);
+            transition: width 0.08s linear;
+            will-change: width;
+        }
+
+        .article-reading-page .toc-links a,
+        .article-reading-page .article-back-link,
+        .article-reading-page .back-to-blog-button {
+            transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .article-reading-page .toc-links a:hover {
+            transform: translateX(4px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .article-reading-page .article-page,
+            .article-reading-page .article-hero-card,
+            .article-reading-page .article-layout { animation: none; }
+            .reading-progress-bar { transition: none; }
+        }
+    </style>
+
 </head>
 
 
-<body>
+
+<body class="article-reading-page">
 
     <div class="website-wrapper">
 
@@ -44,6 +115,11 @@
                 <span class="browser-circle circle-red"></span>
                 <span class="browser-circle circle-blue"></span>
                 <span class="browser-circle circle-red"></span>
+            </div>
+
+            <!-- Reading progress: article pages only -->
+            <div class="reading-progress" aria-hidden="true">
+                <div class="reading-progress-bar" id="readingProgressBar"></div>
             </div>
 
         </div>
@@ -445,6 +521,34 @@
         </footer>
 
     </div>
+
+
+    <!-- Article-only reading progress -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const progressBar = document.getElementById("readingProgressBar");
+            const readingArea = document.querySelector(".article-container");
+
+            if (!progressBar || !readingArea) return;
+
+            function updateReadingProgress() {
+                const rect = readingArea.getBoundingClientRect();
+                const articleTop = rect.top + window.scrollY;
+                const articleHeight = readingArea.offsetHeight;
+                const articleEnd = articleTop + articleHeight;
+                const currentPosition = window.scrollY + (window.innerHeight * 0.25);
+                const totalReadableDistance = Math.max(1, articleEnd - articleTop);
+
+                let progress = (currentPosition - articleTop) / totalReadableDistance;
+                progress = Math.max(0, Math.min(1, progress));
+                progressBar.style.width = `${progress * 100}%`;
+            }
+
+            updateReadingProgress();
+            window.addEventListener("scroll", updateReadingProgress, { passive: true });
+            window.addEventListener("resize", updateReadingProgress);
+        });
+    </script>
 
 </body>
 
