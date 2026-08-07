@@ -2159,3 +2159,453 @@ body {
     background-color: #FFFBF3;
     background-image: none;
 }
+
+/* =========================================================
+   WIDE VIEWPORT / BROWSER ZOOM RESPONSIVE FIX
+   Keeps the normal desktop design unchanged.
+   Activates only when the effective viewport becomes very wide.
+   ========================================================= */
+
+@media (min-width: 2200px) {
+
+    /* Keep the browser-style top bar visually consistent */
+    .website-wrapper {
+        padding-top: clamp(28px, 1.46vw, 56px);
+    }
+
+    .browser-bar {
+        height: clamp(28px, 1.46vw, 56px);
+        padding-left: clamp(18px, 0.94vw, 36px);
+    }
+
+    .browser-circles {
+        gap: clamp(6px, 0.31vw, 12px);
+    }
+
+    .browser-circle {
+        width: clamp(14px, 0.73vw, 28px);
+        height: clamp(14px, 0.73vw, 28px);
+    }
+
+
+    /* Shared frame for the whole website content */
+    .container,
+    .site-header > .container,
+    .hero > .container,
+    .entries-section > .container,
+    .about-section > .container,
+    .footer-main {
+        width: min(86vw, 2600px);
+        max-width: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
+    /* Navbar */
+    .navbar {
+        height: clamp(120px, 6.25vw, 240px);
+    }
+
+    .logo {
+        top: clamp(20px, 1.04vw, 40px);
+        font-size: clamp(70px, 3.65vw, 140px);
+    }
+
+    .nav-links {
+        top: clamp(12px, 0.63vw, 24px);
+        margin-right: 0;
+        gap: clamp(14px, 0.73vw, 28px);
+    }
+
+    .nav-link {
+        min-width: clamp(78px, 4.06vw, 156px);
+        height: clamp(30px, 1.56vw, 60px);
+        padding-right: clamp(18px, 0.94vw, 36px);
+        padding-left: clamp(18px, 0.94vw, 36px);
+
+        font-size: clamp(13px, 0.68vw, 26px);
+    }
+
+
+    /* Hero */
+    .hero-layout {
+        gap: clamp(35px, 1.82vw, 70px);
+        padding-top: clamp(10px, 0.52vw, 20px);
+        padding-bottom: clamp(55px, 2.86vw, 110px);
+    }
+
+    .hero-content {
+        left: 0;
+        width: 47%;
+        max-width: none;
+    }
+
+    .hero-label {
+        left: clamp(105px, 5.47vw, 210px);
+        margin-bottom: clamp(10px, 0.52vw, 20px);
+
+        font-size: clamp(13px, 0.68vw, 26px);
+    }
+
+    .hero-title {
+        margin-bottom: clamp(25px, 1.30vw, 50px);
+
+        font-size: clamp(62px, 3.23vw, 124px);
+        letter-spacing: clamp(-4px, -0.10vw, -2px);
+    }
+
+    .hero-description {
+        width: min(100%, 1040px);
+        margin-bottom: clamp(34px, 1.77vw, 68px);
+
+        font-size: clamp(18px, 0.94vw, 36px);
+        line-height: 1.18;
+    }
+
+    .hero-button {
+        width: clamp(172px, 8.96vw, 344px);
+        height: clamp(46px, 2.40vw, 92px);
+        padding-right: clamp(14px, 0.73vw, 28px);
+        padding-left: clamp(16px, 0.83vw, 32px);
+
+        border-radius: clamp(7px, 0.36vw, 14px);
+
+        font-size: clamp(15px, 0.78vw, 30px);
+    }
+
+    .button-arrow {
+        font-size: clamp(22px, 1.15vw, 44px);
+    }
+
+    .hero-image-container {
+        width: 53%;
+    }
+
+    .hero-image {
+        left: 0;
+
+        width: clamp(560px, 29.17vw, 1120px);
+        max-width: 100%;
+
+        transform-origin: center right;
+    }
+
+
+    /* Entries section */
+    .entries-section {
+        padding-top: clamp(70px, 3.65vw, 140px);
+        padding-bottom: clamp(100px, 5.21vw, 200px);
+    }
+
+    .entries-heading h2 {
+        font-size: clamp(34px, 1.77vw, 68px);
+    }
+
+    .entries-heading::after {
+        width: clamp(115px, 5.99vw, 230px);
+        height: clamp(3px, 0.16vw, 6px);
+        margin-top: clamp(8px, 0.42vw, 16px);
+    }
+
+    .featured-heading {
+        margin-bottom: clamp(28px, 1.46vw, 56px);
+    }
+
+    .featured-card {
+        min-height: clamp(420px, 21.88vw, 840px);
+        border-radius: clamp(25px, 1.30vw, 50px);
+    }
+
+    .featured-image-wrapper,
+    .featured-content {
+        min-height: clamp(420px, 21.88vw, 840px);
+    }
+
+    .featured-content {
+        padding:
+            clamp(58px, 3.02vw, 116px)
+            clamp(46px, 2.40vw, 92px)
+            clamp(28px, 1.46vw, 56px);
+    }
+
+    .featured-title {
+        margin-bottom: clamp(30px, 1.56vw, 60px);
+
+        font-size: clamp(32px, 1.67vw, 64px);
+    }
+
+    .featured-description {
+        max-width: 960px;
+        margin-bottom: clamp(34px, 1.77vw, 68px);
+
+        font-size: clamp(15px, 0.78vw, 30px);
+    }
+
+    .read-more-button {
+        min-width: clamp(140px, 7.29vw, 280px);
+        height: clamp(39px, 2.03vw, 78px);
+        padding-right: clamp(11px, 0.57vw, 22px);
+        padding-left: clamp(16px, 0.83vw, 32px);
+
+        border-radius: clamp(5px, 0.26vw, 10px);
+
+        font-size: clamp(13px, 0.68vw, 26px);
+    }
+
+    .entry-meta {
+        padding-top: clamp(30px, 1.56vw, 60px);
+        gap: clamp(38px, 1.98vw, 76px);
+    }
+
+    .meta-item {
+        gap: clamp(8px, 0.42vw, 16px);
+        font-size: clamp(11px, 0.57vw, 22px);
+    }
+
+    .meta-icon {
+        width: clamp(15px, 0.78vw, 30px);
+        height: clamp(15px, 0.78vw, 30px);
+        flex-basis: clamp(15px, 0.78vw, 30px);
+    }
+
+
+    /* Recent entries */
+    .recent-header {
+        margin-top: clamp(105px, 5.47vw, 210px);
+        margin-bottom: clamp(35px, 1.82vw, 70px);
+    }
+
+    .view-all-link {
+        gap: clamp(14px, 0.73vw, 28px);
+        font-size: clamp(13px, 0.68vw, 26px);
+    }
+
+    .view-all-link span:last-child {
+        font-size: clamp(19px, 0.99vw, 38px);
+    }
+
+    .recent-grid {
+        gap: clamp(38px, 3.23vw, 124px);
+    }
+
+    .recent-card {
+        min-height: clamp(425px, 22.14vw, 850px);
+        border-radius: clamp(17px, 0.89vw, 34px);
+    }
+
+    .recent-image-wrapper {
+        height: clamp(205px, 10.68vw, 410px);
+    }
+
+    .recent-card-content {
+        min-height: clamp(220px, 11.46vw, 440px);
+        padding:
+            clamp(24px, 1.25vw, 48px)
+            clamp(24px, 1.25vw, 48px)
+            clamp(18px, 0.94vw, 36px);
+    }
+
+    .recent-card-title {
+        margin-bottom: clamp(20px, 1.04vw, 40px);
+
+        font-size: clamp(20px, 1.04vw, 40px);
+    }
+
+    .recent-card-description {
+        font-size: clamp(12px, 0.63vw, 24px);
+    }
+
+    .recent-meta {
+        padding-top: clamp(24px, 1.25vw, 48px);
+        gap: clamp(12px, 0.63vw, 24px);
+    }
+
+
+    /* About */
+    .about-section {
+        padding-top: clamp(85px, 4.43vw, 170px);
+        padding-bottom: clamp(70px, 3.65vw, 140px);
+    }
+
+    .about-card {
+        min-height: clamp(355px, 18.49vw, 710px);
+        padding:
+            clamp(48px, 2.50vw, 96px)
+            clamp(70px, 3.65vw, 140px);
+
+        grid-template-columns:
+            clamp(280px, 14.58vw, 560px)
+            minmax(0, 1fr);
+
+        gap: clamp(65px, 3.39vw, 130px);
+
+        border-radius: clamp(25px, 1.30vw, 50px);
+    }
+
+    .about-avatar-wrapper {
+        width: clamp(245px, 12.76vw, 490px);
+        height: clamp(245px, 12.76vw, 490px);
+
+        border-width: clamp(4px, 0.21vw, 8px);
+    }
+
+    .about-content {
+        max-width: 1300px;
+    }
+
+    .about-title-row {
+        margin-bottom: clamp(28px, 1.46vw, 56px);
+        gap: clamp(15px, 0.78vw, 30px);
+    }
+
+    .about-title {
+        font-size: clamp(48px, 2.50vw, 96px);
+    }
+
+    .about-heart {
+        width: clamp(30px, 1.56vw, 60px);
+        height: clamp(30px, 1.56vw, 60px);
+    }
+
+    .about-description {
+        max-width: 1240px;
+        margin-bottom: clamp(38px, 1.98vw, 76px);
+
+        font-size: clamp(15px, 0.78vw, 30px);
+    }
+
+    .about-button {
+        min-width: clamp(205px, 10.68vw, 410px);
+        height: clamp(42px, 2.19vw, 84px);
+        padding-right: clamp(12px, 0.63vw, 24px);
+        padding-left: clamp(17px, 0.89vw, 34px);
+
+        border-radius: clamp(5px, 0.26vw, 10px);
+
+        font-size: clamp(13px, 0.68vw, 26px);
+    }
+
+    .about-computer {
+        top: clamp(22px, 1.15vw, 44px);
+        right: clamp(28px, 1.46vw, 56px);
+
+        width: clamp(85px, 4.43vw, 170px);
+    }
+
+    .about-warning {
+        right: clamp(30px, 1.56vw, 60px);
+        bottom: clamp(24px, 1.25vw, 48px);
+
+        width: clamp(55px, 2.86vw, 110px);
+    }
+
+
+    /* Footer: keep the full-width red background,
+       but scale its content so it does not become tiny */
+    .site-footer {
+        width: 100%;
+    }
+
+    .footer-main {
+        min-height: clamp(285px, 14.84vw, 570px);
+        padding-top: clamp(48px, 2.50vw, 96px);
+        padding-bottom: clamp(40px, 2.08vw, 80px);
+
+        grid-template-columns: 1.45fr 0.8fr 1fr;
+        gap: clamp(65px, 4.69vw, 180px);
+    }
+
+    .footer-brand {
+        left: clamp(55px, 2.86vw, 110px);
+        max-width: 860px;
+    }
+
+    .footer-logo {
+        margin-bottom: clamp(14px, 0.73vw, 28px);
+
+        font-size: clamp(58px, 3.02vw, 116px);
+    }
+
+    .footer-tagline,
+    .footer-brand-line,
+    .footer-description {
+        width: clamp(340px, 17.71vw, 680px);
+    }
+
+    .footer-tagline {
+        font-size: clamp(14px, 0.73vw, 28px);
+    }
+
+    .footer-brand-line {
+        height: clamp(1px, 0.052vw, 2px);
+        margin-top: clamp(22px, 1.15vw, 44px);
+        margin-bottom: clamp(22px, 1.15vw, 44px);
+    }
+
+    .footer-description {
+        max-width: 680px;
+
+        font-size: clamp(13px, 0.68vw, 26px);
+    }
+
+    .footer-heading {
+        margin-bottom: clamp(20px, 1.04vw, 40px);
+
+        font-size: clamp(16px, 0.83vw, 32px);
+    }
+
+    .footer-links a {
+        width: clamp(130px, 6.77vw, 260px);
+        padding-top: clamp(12px, 0.63vw, 24px);
+        padding-bottom: clamp(12px, 0.63vw, 24px);
+
+        font-size: clamp(13px, 0.68vw, 26px);
+    }
+
+    .social-links {
+        gap: clamp(15px, 0.78vw, 30px);
+    }
+
+    .social-link {
+        width: clamp(44px, 2.29vw, 88px);
+        height: clamp(44px, 2.29vw, 88px);
+    }
+
+    .social-link svg {
+        width: clamp(21px, 1.09vw, 42px);
+        height: clamp(21px, 1.09vw, 42px);
+    }
+
+    .footer-bottom {
+        min-height: clamp(55px, 2.86vw, 110px);
+        padding:
+            clamp(18px, 0.94vw, 36px)
+            clamp(20px, 1.04vw, 40px);
+    }
+
+    .footer-bottom p {
+        font-size: clamp(12px, 0.63vw, 24px);
+    }
+}
+
+/* =========================================================
+   ARTICLE TOP BAR FIX
+   Keeps the lesson/article browser bar identical to the homepage
+   ========================================================= */
+
+.article-reading-page .browser-bar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+
+    width: 100% !important;
+}
+
+/* Keep the article reading-progress line attached to the gray bar */
+.article-reading-page .reading-progress {
+    left: 0;
+    width: 100%;
+}
