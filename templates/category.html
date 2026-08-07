@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>{{ category.title }} | Learning Path</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/category.css') }}"
+    >
+
+    <script
+        src="{{ url_for('static', filename='js/category.js') }}"
+        defer
+    ></script>
+</head>
+
+
+<body>
+
+    <div class="website-wrapper">
+
+        <div class="browser-bar">
+            <div class="browser-circles">
+                <span class="browser-circle circle-red"></span>
+                <span class="browser-circle circle-blue"></span>
+                <span class="browser-circle circle-red"></span>
+            </div>
+        </div>
+
+
+        <header class="site-header">
+
+            <div class="container navbar">
+
+                <a href="{{ url_for('home') }}" class="logo">
+                    Learning Path
+                </a>
+
+                <nav
+                    class="nav-links"
+                    aria-label="Main navigation"
+                >
+                    <a
+                        href="{{ url_for('home') }}"
+                        class="nav-link nav-red"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="{{ url_for('blog') }}"
+                        class="nav-link nav-blue"
+                        aria-current="page"
+                    >
+                        Blog
+                    </a>
+
+                    <a
+                        href="{{ url_for('about') }}"
+                        class="nav-link nav-red"
+                    >
+                        About
+                    </a>
+                </nav>
+
+            </div>
+
+        </header>
+
+
+        <main
+            class="category-page"
+            data-category="{{ category_slug }}"
+        >
+
+            <div class="container category-container">
+
+                <a
+                    href="{{ url_for('blog') }}"
+                    class="category-back-link"
+                >
+                    <span aria-hidden="true">←</span>
+                    Back to Blog Categories
+                </a>
+
+
+                <section class="category-header">
+
+                    <div>
+
+                        <p class="category-kicker">
+                            Category {{ category.number }}
+                        </p>
+
+                        <h1>
+                            {{ category.title }}
+                        </h1>
+
+                        <p class="category-description">
+                            {{ category.description }}
+                        </p>
+
+                    </div>
+
+
+                    <div class="category-header-icon">
+
+                        <img
+                            src="{{ url_for('static', filename='images/' ~ category.icon) }}"
+                            alt=""
+                        >
+
+                    </div>
+
+                </section>
+
+
+                <section
+                    class="category-toolbar"
+                    aria-label="Entry controls"
+                >
+
+                    <label class="category-search">
+
+                        <span class="search-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="7"></circle>
+                                <path d="m20 20-4-4"></path>
+                            </svg>
+                        </span>
+
+                        <input
+                            type="search"
+                            id="entrySearch"
+                            placeholder="Search {{ category.title|lower }}..."
+                            autocomplete="off"
+                        >
+
+                    </label>
+
+
+                    <button
+                        class="favorites-filter"
+                        id="favoritesFilter"
+                        type="button"
+                        aria-pressed="false"
+                    >
+                        <span aria-hidden="true">♡</span>
+                        Favorites
+                    </button>
+
+
+                    <label class="sort-control">
+
+                        <span>
+                            Sort
+                        </span>
+
+                        <select id="entrySort">
+                            <option value="newest">
+                                Newest
+                            </option>
+
+                            <option value="oldest">
+                                Oldest
+                            </option>
+                        </select>
+
+                    </label>
+
+                </section>
+
+
+                <div class="category-summary-row">
+
+                    <p>
+                        <strong id="visibleEntryCount">
+                            {{ entries|length }}
+                        </strong>
+                        <span id="entryCountLabel">
+                            {% if entries|length == 1 %}
+                                entry
+                            {% else %}
+                                entries
+                            {% endif %}
+                        </span>
+                    </p>
+
+                    <p class="activity-note">
+                        Favorites and reading activity are saved on this browser.
+                    </p>
+
+                </div>
+
+
+                <section
+                    class="category-post-grid"
+                    id="categoryPostGrid"
+                    aria-live="polite"
+                >
+
+                    {% for entry in entries %}
+
+                        <article
+                            class="category-post-card"
+                            data-entry-slug="{{ entry.slug }}"
+                            data-search-text="{{ (entry.title ~ ' ' ~ entry.description)|lower }}"
+                            data-published="{{ entry.published_iso }}"
+                        >
+
+                            <div class="category-post-image-wrap">
+
+                                <img
+                                    src="{{ url_for('static', filename='images/' ~ entry.image) }}"
+                                    alt="{{ entry.image_alt }}"
+                                    class="category-post-image"
+                                >
+
+                                <button
+                                    class="favorite-button"
+                                    type="button"
+                                    data-favorite-slug="{{ entry.slug }}"
+                                    aria-label="Add {{ entry.title }} to favorites"
+                                    aria-pressed="false"
+                                    title="Save to favorites"
+                                >
+                                    <span aria-hidden="true">♡</span>
+                                </button>
+
+                            </div>
+
+
+                            <div class="category-post-content">
+
+                                <p class="category-post-type">
+                                    {{ entry.category_label }}
+                                </p>
+
+                                <h2>
+                                    {{ entry.title }}
+                                </h2>
+
+                                <p class="category-post-description">
+                                    {{ entry.description }}
+                                </p>
+
+                                <div class="category-post-meta">
+
+    <span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+            <path d="M8 3v4M16 3v4M3 10h18"></path>
+        </svg>
+
+        Published {{ entry.date }}
+    </span>
+
+</div>
+
+
+                                <div class="reader-activity">
+
+                                    <div class="reader-activity-item">
+
+                                        <span class="reader-activity-icon">
+                                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                                                <path d="M8 3v4M16 3v4M3 10h18"></path>
+                                            </svg>
+                                        </span>
+
+                                        <div>
+                                            <span class="activity-label">
+                                                Last opened
+                                            </span>
+
+                                            <strong
+                                                class="activity-value"
+                                                data-last-opened="{{ entry.slug }}"
+                                            >
+                                                Not opened yet
+                                            </strong>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="reader-activity-item">
+
+                                        <span class="reader-activity-icon">
+                                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                                <circle cx="12" cy="12" r="9"></circle>
+                                                <path d="M12 7v5l3 2"></path>
+                                            </svg>
+                                        </span>
+
+                                        <div>
+                                            <span class="activity-label">
+                                                Time spent reading
+                                            </span>
+
+                                            <strong
+                                                class="activity-value"
+                                                data-time-spent="{{ entry.slug }}"
+                                            >
+                                                No reading time yet
+                                            </strong>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="category-post-actions">
+
+                                    {% if entry.article_slug %}
+
+                                        <a
+                                            href="{{ url_for('article', slug=entry.article_slug) }}"
+                                            class="read-entry-button"
+                                            data-open-entry="{{ entry.slug }}"
+                                        >
+                                            Read Entry
+                                            <span aria-hidden="true">→</span>
+                                        </a>
+
+                                    {% else %}
+
+                                        <span class="entry-coming-soon">
+                                            Full article page coming soon
+                                        </span>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    {% endfor %}
+
+                </section>
+
+
+                <div
+                    class="empty-category-state"
+                    id="emptyCategoryState"
+                    hidden
+                >
+                    <span aria-hidden="true">⌕</span>
+
+                    <h2>
+                        No matching entries
+                    </h2>
+
+                    <p>
+                        Try another search or turn off the Favorites filter.
+                    </p>
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <footer class="site-footer">
+
+            <div class="container footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="{{ url_for('home') }}"
+                        class="footer-logo"
+                    >
+                        Learning Path
+                    </a>
+
+                    <p class="footer-tagline">
+                        Every lesson shapes the path ahead.
+                    </p>
+
+                    <div class="footer-brand-line"></div>
+
+                    <p class="footer-description">
+                        More than a collection of posts, this is a timeline
+                        of my progress—built through projects, strengthened
+                        by lessons, and inspired by personal insights.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links-column">
+
+                    <h3 class="footer-heading">
+                        Quick Links
+                    </h3>
+
+                    <nav
+                        class="footer-links"
+                        aria-label="Footer navigation"
+                    >
+                        <a href="{{ url_for('home') }}">› Home</a>
+                        <a href="{{ url_for('blog') }}">› Blog</a>
+                        <a href="{{ url_for('about') }}">› About</a>
+                    </nav>
+
+                </div>
+
+
+                <div class="footer-contact">
+
+                    <h3 class="footer-heading">
+                        Contact
+                    </h3>
+
+                    <div class="social-links">
+
+                        <a
+                            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=deljoy.cancio@urios.edu.ph&amp;su=Message%20from%20Learning%20Path"
+                            class="social-link"
+                            aria-label="Compose an email"
+                            title="Email"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm9 7 8-5H4l8 5zm0 2.3L3 8.7V17h18V8.7l-9 5.6z"></path>
+                            </svg>
+                        </a>
+
+                        <a
+                            href="https://github.com/delcancio"
+                            class="social-link"
+                            aria-label="Visit GitHub profile"
+                            title="GitHub"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 .7a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.3c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.4 5.9.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .7z"></path>
+                            </svg>
+                        </a>
+
+                        <a
+                            href="https://www.facebook.com/share/1BW9eo71Fx/"
+                            class="social-link"
+                            aria-label="Visit Facebook profile"
+                            title="Facebook"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M13.7 22v-9h3l.5-3.5h-3.5V7.3c0-1 .3-1.7 1.8-1.7h1.9V2.4c-.3 0-1.5-.1-2.8-.1-2.8 0-4.7 1.7-4.7 4.8v2.4H7V13h2.9v9h3.8z"></path>
+                            </svg>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 Learning Path. All rights reserved.
+                </p>
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

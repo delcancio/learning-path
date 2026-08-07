@@ -45,52 +45,6 @@
         </div>
 
 
-        <!-- Navbar -->
-
-        <header class="site-header">
-
-            <div class="container navbar">
-
-                <a
-                    href="{{ url_for('home') }}"
-                    class="logo"
-                >
-                    Learning Path
-                </a>
-
-                <nav
-                    class="nav-links"
-                    aria-label="Main navigation"
-                >
-
-                    <a
-                        href="{{ url_for('home') }}"
-                        class="nav-link nav-red"
-                    >
-                        Home
-                    </a>
-
-                    <a
-                        href="{{ url_for('home') }}#blog"
-                        class="nav-link nav-blue"
-                    >
-                        Blog
-                    </a>
-
-                    <a
-                        href="{{ url_for('about') }}"
-                        class="nav-link nav-red profile-active-link"
-                    >
-                        About
-                    </a>
-
-                </nav>
-
-            </div>
-
-        </header>
-
-
         <!-- Profile Page -->
 
         <main class="profile-page">
@@ -169,7 +123,7 @@
 
                         <div class="profile-status">
                             <span class="status-dot"></span>
-                            Currently learning and creating
+                            studyante sa buntag, wakwak sa gabie
                         </div>
 
                     </div>
@@ -205,7 +159,7 @@
                         <div class="profile-buttons">
 
                             <a
-                                href="{{ url_for('home') }}#blog"
+                                href="{{ url_for('blog') }}"
                                 class="profile-primary-button"
                             >
                                 Explore My Entries
@@ -229,9 +183,12 @@
                 </section>
 
 
-                <!-- Personal Details -->
 
-                <section class="profile-section">
+                <!-- =========================================================
+                     PERSONAL DETAILS
+                     ========================================================= -->
+
+                <section class="profile-section personal-details-section">
 
                     <div class="profile-section-heading">
 
@@ -240,67 +197,119 @@
                         </p>
 
                         <h2>
-                            My Details
+                            Personal Details
                         </h2>
 
-                    </div>
-
-
-                    <div class="details-grid">
-
-                        <article class="detail-card">
-
-                            <span class="detail-number">
-                                01
-                            </span>
-
-                            <p class="detail-label">
-                                Full Name
-                            </p>
-
-                            <h3>
-                                Deljoy Cancio
-                            </h3>
-
-                        </article>
-
-
-                        <article class="detail-card">
-
-                            <span class="detail-number">
-                                02
-                            </span>
-
-                            <p class="detail-label">
-                                Program
-                            </p>
-
-                            <h3>
-                                BS Information Technology
-                            </h3>
-
-                        </article>
-
-
-                        <article class="detail-card">
-
-                            <span class="detail-number">
-                                03
-                            </span>
-
-                            <p class="detail-label">
-                                Year Level
-                            </p>
-
-                            <h3>
-                                Third Year Student
-                            </h3>
-
-                        </article>
-
+                        <p class="section-description">
+                            A quick overview of my academic background
+                            and current studies.
+                        </p>
 
                     </div>
 
+
+                    <<div class="personal-details-grid">
+
+    <!-- Name -->
+    <article class="personal-detail-card">
+
+        <span class="detail-icon detail-icon-name" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm-8 10c0-4.4 3.6-8 8-8s8 3.6 8 8"></path>
+            </svg>
+        </span>
+
+        <div class="personal-detail-text">
+            <p class="personal-detail-label">
+                Name
+            </p>
+
+            <p class="personal-detail-value">
+                Deljoy Cancio
+            </p>
+        </div>
+
+    </article>
+
+
+    <!-- Course -->
+    <article class="personal-detail-card">
+
+        <span class="detail-icon detail-icon-course" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+                <path d="m9 9-2 2 2 2"></path>
+                <path d="m15 9 2 2-2 2"></path>
+            </svg>
+        </span>
+
+        <div class="personal-detail-text">
+            <p class="personal-detail-label">
+                Course
+            </p>
+
+            <p class="personal-detail-value">
+                Bachelor of Science in Information Technology (BSIT)
+            </p>
+        </div>
+
+    </article>
+
+
+    <!-- School -->
+    <article class="personal-detail-card">
+
+        <span class="detail-icon detail-icon-school" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V9"></path>
+                <path d="M19 21V9"></path>
+                <path d="M3 9 12 3l9 6"></path>
+                <path d="M9 21v-6h6v6"></path>
+                <path d="M8 11h1"></path>
+                <path d="M15 11h1"></path>
+            </svg>
+        </span>
+
+        <div class="personal-detail-text">
+            <p class="personal-detail-label">
+                School
+            </p>
+
+            <p class="personal-detail-value">
+                Father Saturnino Urios University
+            </p>
+        </div>
+
+    </article>
+
+
+    <!-- Year Level -->
+    <article class="personal-detail-card">
+
+        <span class="detail-icon detail-icon-year" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+                <path d="M2 10 12 5l10 5-10 5L2 10Z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                <path d="M22 10v6"></path>
+            </svg>
+        </span>
+
+        <div class="personal-detail-text">
+            <p class="personal-detail-label">
+                Year Level
+            </p>
+
+            <p class="personal-detail-value">
+                Third-Year Student
+            </p>
+        </div>
+
+    </article>
+
+</div>
                 </section>
 
 
@@ -497,7 +506,7 @@
                         aria-label="Footer navigation"
                     >
                         <a href="{{ url_for('home') }}">› Home</a>
-                        <a href="{{ url_for('home') }}#blog">› Blog</a>
+                        <a href="{{ url_for('blog') }}">› Blog</a>
                         <a href="{{ url_for('about') }}">› About</a>
                     </nav>
 

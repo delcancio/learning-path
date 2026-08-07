@@ -141,23 +141,6 @@
         12px 12px 0 rgba(13, 71, 161, 0.13);
 }
 
-.profile-image-frame::before {
-    content: "";
-
-    position: absolute;
-    top: 13px;
-    left: 13px;
-
-    width: 14px;
-    height: 14px;
-
-    background-color: var(--red, #9a3333);
-
-    box-shadow:
-        22px 0 0 var(--blue, #0d47a1),
-        44px 0 0 var(--red, #9a3333);
-}
-
 .profile-image {
     width: 100%;
     height: 100%;
@@ -347,72 +330,123 @@
 
 
 /* =========================================================
-   DETAILS GRID
+   PERSONAL DETAILS
    ========================================================= */
 
-.details-grid {
-    width: 100%;
-    max-width: 1050px;
-    margin-right: auto;
-    margin-left: auto;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+.personal-details-section {
+    position: relative;
 }
 
-.detail-card {
+.personal-details-grid {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.personal-detail-card {
     position: relative;
 
-    min-height: 165px;
-    padding: 24px 21px;
+    min-height: 110px;
+    padding: 22px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
 
     overflow: hidden;
 
     border: 1px solid #e4ddd8;
     border-radius: 14px;
 
-    background-color: #fcfaf8;
+    background:
+        linear-gradient(
+            135deg,
+            #fcfaf8 0%,
+            #ffffff 100%
+        );
+
+    transition:
+        transform 170ms ease,
+        border-color 170ms ease,
+        box-shadow 170ms ease;
 }
 
-.detail-card:hover {
-    transform: translateY(-4px);
+.personal-detail-card::before {
+    content: "";
 
-    border-color: rgba(13, 71, 161, 0.28);
+    position: absolute;
+    top: 0;
+    left: 0;
 
-    box-shadow: 0 10px 22px rgba(13, 71, 161, 0.08);
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--red, #9a3333) 0%,
+            var(--red, #9a3333) 50%,
+            var(--blue, #0d47a1) 50%,
+            var(--blue, #0d47a1) 100%
+        );
 }
 
-.detail-number {
-    display: block;
-    margin-bottom: 28px;
+.personal-detail-card:hover {
+    transform: translateY(-3px);
 
-    color: var(--red, #9a3333);
+    border-color: rgba(13, 71, 161, 0.22);
 
-    font-family: "Courier New", monospace;
-    font-size: 13px;
-    font-weight: 700;
+    box-shadow:
+        0 10px 22px rgba(84, 27, 27, 0.07);
 }
 
-.detail-label {
-    margin-bottom: 7px;
+.personal-detail-label {
+    margin: 0;
 
-    color: #7a7a7a;
+    color: var(--blue, #0d47a1);
 
     font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
 
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-.detail-card h3 {
+.personal-detail-value {
+    margin: 0;
+
     color: #282828;
 
-    font-family: "Cardo", Georgia, serif;
-    font-size: 21px;
-    line-height: 1.25;
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+
+/* Personal Details - Mobile */
+
+@media (max-width: 700px) {
+
+    .personal-details-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .personal-detail-card {
+        min-height: 95px;
+        padding: 19px 20px;
+    }
+
+    .personal-detail-value {
+        font-size: 14px;
+    }
 }
 
 
@@ -618,10 +652,6 @@
         height: 305px;
     }
 
-    .details-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .profile-journey {
         grid-template-columns: 1fr;
         gap: 33px;
@@ -738,14 +768,6 @@
     .profile-section-heading h2,
     .profile-journey h2 {
         font-size: 31px;
-    }
-
-    .details-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .detail-card {
-        min-height: 145px;
     }
 
     .profile-journey {
@@ -866,4 +888,157 @@
     .profile-back-link {
         font-size: 11px;
     }
+}
+
+/* =========================================================
+   PERSONAL DETAILS ICONS
+   ========================================================= */
+
+.personal-detail-card {
+    position: relative;
+
+    min-height: 110px;
+    padding: 22px 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    border: 1px solid #e4ddd8;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fcfaf8 0%,
+            #ffffff 100%
+        );
+
+    transition:
+        transform 170ms ease,
+        border-color 170ms ease,
+        box-shadow 170ms ease;
+}
+
+
+.personal-detail-card:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(13, 71, 161, 0.22);
+
+    box-shadow:
+        0 10px 22px rgba(84, 27, 27, 0.07);
+}
+
+
+.detail-icon {
+    width: 44px;
+    height: 44px;
+
+    flex: 0 0 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+}
+
+
+.detail-icon svg {
+    width: 21px;
+    height: 21px;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Name */
+.detail-icon-name {
+    background-color: #fff0f0;
+    color: var(--red, #9a3333);
+}
+
+
+/* Course */
+.detail-icon-course {
+    background-color: #eef4ff;
+    color: var(--blue, #0d47a1);
+}
+
+
+/* School */
+.detail-icon-school {
+    background-color: #f8f1eb;
+    color: var(--dark-red, #541b1b);
+}
+
+
+/* Year */
+.detail-icon-year {
+    background-color: #eef4ff;
+    color: var(--blue, #0d47a1);
+}
+
+
+.personal-detail-text {
+    min-width: 0;
+}
+
+
+.personal-detail-label {
+    margin: 0 0 5px;
+
+    color: #777777;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+.personal-detail-value {
+    margin: 0;
+
+    color: #282828;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    line-height: 1.45;
+}
+
+
+@media (max-width: 700px) {
+
+    .personal-detail-card {
+        min-height: 95px;
+        padding: 18px 20px;
+    }
+
+    .detail-icon {
+        width: 40px;
+        height: 40px;
+
+        flex-basis: 40px;
+    }
+
+    .detail-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .personal-detail-value {
+        font-size: 14px;
+    }
+
 }

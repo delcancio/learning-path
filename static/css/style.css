@@ -402,7 +402,7 @@ main {
         --hero-picture-x: 100px;
         --hero-picture-y: -28px;
         --hero-picture-width: 620px;
-        --hero-picture-zoom: 1.5;
+        --hero-picture-zoom: 1.10;
     }
 
     .hero-content {
@@ -559,7 +559,7 @@ main {
 }
 
 .featured-card:hover .featured-image {
-    transform: scale(1.025);
+    transform: scale(1.035);
 }
 
 .featured-content {

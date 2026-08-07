@@ -97,11 +97,17 @@
         }
     </style>
 
+
+    <script
+        src="{{ url_for('static', filename='js/reading-tracker.js') }}"
+        defer
+    ></script>
+
 </head>
 
 
 
-<body class="article-reading-page">
+<body class="article-reading-page" data-entry-slug="{{ post.slug }}">
 
     <div class="website-wrapper">
 
@@ -181,16 +187,7 @@
                 <article class="article-hero-card">
 
                     <div class="article-heading-content">
-
-                        <a
-                            href="{{ url_for('home') }}#blog"
-                            class="article-back-link"
-                        >
-                            <span aria-hidden="true">←</span>
-                            Back to Blog
-                        </a>
-
-                        <p class="article-category">
+<p class="article-category">
                             {{ post.category }}
                         </p>
 
@@ -367,10 +364,10 @@
                             </p>
 
                             <a
-                                href="{{ url_for('home') }}#blog"
+                                href="{{ url_for('blog_category', category='lessons') }}"
                                 class="back-to-blog-button"
                             >
-                                <span>Back to Blog</span>
+                                <span>Explore More Lessons</span>
                                 <span aria-hidden="true">→</span>
                             </a>
 
@@ -534,13 +531,17 @@
             function updateReadingProgress() {
                 const rect = readingArea.getBoundingClientRect();
                 const articleTop = rect.top + window.scrollY;
-                const articleHeight = readingArea.offsetHeight;
-                const articleEnd = articleTop + articleHeight;
-                const currentPosition = window.scrollY + (window.innerHeight * 0.25);
-                const totalReadableDistance = Math.max(1, articleEnd - articleTop);
+                const articleEnd = articleTop + readingArea.offsetHeight;
 
-                let progress = (currentPosition - articleTop) / totalReadableDistance;
+                // Use the bottom of the visible browser window as the reading marker.
+                // This makes the progress reach exactly 100% when the end of the lesson
+                // is already visible, while the footer is still excluded.
+                const viewportBottom = window.scrollY + window.innerHeight;
+                const readableHeight = Math.max(1, articleEnd - articleTop);
+
+                let progress = (viewportBottom - articleTop) / readableHeight;
                 progress = Math.max(0, Math.min(1, progress));
+
                 progressBar.style.width = `${progress * 100}%`;
             }
 
@@ -553,4 +554,3 @@
 </body>
 
 </html>
-

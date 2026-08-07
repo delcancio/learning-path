@@ -1,6 +1,7 @@
 from flask import Flask, abort, render_template
 
 from posts import POSTS
+from blog_catalog import BLOG_CATALOG, BLOG_CATEGORIES
 
 
 app = Flask(__name__)
@@ -13,6 +14,42 @@ def home():
     return render_template(
         "index.html",
         featured_post=featured_post
+    )
+
+
+@app.route("/blog")
+def blog():
+    return render_template(
+        "blog.html",
+        categories=BLOG_CATEGORIES
+    )
+
+
+@app.route("/blog/category/<category>")
+def blog_category(category):
+    category = category.lower()
+
+    category_info = BLOG_CATEGORIES.get(category)
+
+    if category_info is None:
+        abort(404)
+
+    entries = [
+        entry
+        for entry in BLOG_CATALOG
+        if entry["category"] == category
+    ]
+
+    entries.sort(
+        key=lambda entry: entry["published_iso"],
+        reverse=True
+    )
+
+    return render_template(
+        "category.html",
+        category_slug=category,
+        category=category_info,
+        entries=entries
     )
 
 
