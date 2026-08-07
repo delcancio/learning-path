@@ -16,15 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const countElement = document.getElementById("visibleEntryCount");
     const countLabel = document.getElementById("entryCountLabel");
 
-
     if (!grid || !cards.length) {
         return;
     }
 
-
-    /* =========================================================
-       LOCAL STORAGE HELPERS
-       ========================================================= */
 
     function readJSON(key, fallback) {
 
@@ -41,9 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
 
             return fallback;
-
         }
-
     }
 
 
@@ -53,13 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
             key,
             JSON.stringify(value)
         );
-
     }
 
-
-    /* =========================================================
-       FAVORITES
-       ========================================================= */
 
     function getFavorites() {
 
@@ -71,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return Array.isArray(favorites)
             ? favorites
             : [];
-
     }
 
 
@@ -81,7 +68,62 @@ document.addEventListener("DOMContentLoaded", function () {
             FAVORITES_KEY,
             favorites
         );
+    }
 
+
+    function formatDateTime(isoDate) {
+
+        if (!isoDate) {
+            return "Not opened yet";
+        }
+
+        const date = new Date(isoDate);
+
+        if (Number.isNaN(date.getTime())) {
+            return "Not opened yet";
+        }
+
+        return new Intl.DateTimeFormat(
+            undefined,
+            {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "numeric",
+                minute: "2-digit"
+            }
+        ).format(date);
+    }
+
+
+    function formatDuration(totalSeconds) {
+
+        const seconds = Math.max(
+            0,
+            Number(totalSeconds) || 0
+        );
+
+        if (seconds < 60) {
+
+            return seconds > 0
+                ? `${seconds} sec`
+                : "No reading time yet";
+        }
+
+        const hours = Math.floor(
+            seconds / 3600
+        );
+
+        const minutes = Math.floor(
+            (seconds % 3600) / 60
+        );
+
+        if (hours > 0) {
+
+            return `${hours} hr ${minutes} min`;
+        }
+
+        return `${minutes} min`;
     }
 
 
@@ -99,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 const active =
                     favorites.includes(slug);
 
-
                 button.setAttribute(
                     "aria-pressed",
                     active
@@ -107,19 +148,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         : "false"
                 );
 
-
-                const icon =
-                    button.querySelector("span");
-
-                if (icon) {
-
-                    icon.textContent =
-                        active
-                            ? "♥"
-                            : "♡";
-
-                }
-
+                button.querySelector(
+                    "span"
+                ).textContent =
+                    active
+                        ? "♥"
+                        : "♡";
 
                 button.setAttribute(
                     "aria-label",
@@ -127,91 +161,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         ? "Remove from favorites"
                         : "Add to favorites"
                 );
-
             });
-
     }
 
-
-    /* =========================================================
-       DATE / TIME FORMATTING
-       ========================================================= */
-
-    function formatDateTime(isoDate) {
-
-        if (!isoDate) {
-            return "Not opened yet";
-        }
-
-
-        const date = new Date(isoDate);
-
-
-        if (Number.isNaN(date.getTime())) {
-            return "Not opened yet";
-        }
-
-
-        return new Intl.DateTimeFormat(
-            undefined,
-            {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-                hour: "numeric",
-                minute: "2-digit"
-            }
-        ).format(date);
-
-    }
-
-
-    /* =========================================================
-       READING TIME FORMATTING
-       ========================================================= */
-
-    function formatDuration(totalSeconds) {
-
-        const seconds = Math.max(
-            0,
-            Number(totalSeconds) || 0
-        );
-
-
-        if (seconds < 60) {
-
-            return seconds > 0
-                ? `${seconds} sec`
-                : "No reading time yet";
-
-        }
-
-
-        const hours =
-            Math.floor(seconds / 3600);
-
-
-        const minutes =
-            Math.floor(
-                (seconds % 3600) / 60
-            );
-
-
-        if (hours > 0) {
-
-            return `${hours} hr ${minutes} min`;
-
-        }
-
-
-        return `${minutes} min`;
-
-    }
-
-
-    /* =========================================================
-       READING ACTIVITY
-       ========================================================= */
 
     function renderReadingActivity() {
 
@@ -220,28 +172,23 @@ document.addEventListener("DOMContentLoaded", function () {
             {}
         );
 
-
         cards.forEach(function (card) {
 
             const slug =
                 card.dataset.entrySlug;
 
-
             const record =
                 history[slug] || {};
-
 
             const lastOpened =
                 card.querySelector(
                     `[data-last-opened="${slug}"]`
                 );
 
-
             const timeSpent =
                 card.querySelector(
                     `[data-time-spent="${slug}"]`
                 );
-
 
             if (lastOpened) {
 
@@ -249,9 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     formatDateTime(
                         record.lastOpened
                     );
-
             }
-
 
             if (timeSpent) {
 
@@ -259,17 +204,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     formatDuration(
                         record.totalSeconds
                     );
-
             }
-
         });
-
     }
 
-
-    /* =========================================================
-       SEARCH + FAVORITES FILTER
-       ========================================================= */
 
     function applyFilters() {
 
@@ -280,54 +218,45 @@ document.addEventListener("DOMContentLoaded", function () {
                     .toLowerCase()
                 : "";
 
-
         const favoritesOnly =
             favoritesFilter
-                ? favoritesFilter.getAttribute(
-                    "aria-pressed"
-                ) === "true"
+                ? favoritesFilter
+                    .getAttribute(
+                        "aria-pressed"
+                    ) === "true"
                 : false;
-
 
         const favorites =
             getFavorites();
 
-
         let visibleCount = 0;
-
 
         cards.forEach(function (card) {
 
             const text =
                 card.dataset.searchText || "";
 
-
             const slug =
                 card.dataset.entrySlug;
-
 
             const matchesSearch =
                 !query ||
                 text.includes(query);
 
-
             const matchesFavorite =
                 !favoritesOnly ||
                 favorites.includes(slug);
-
 
             const visible =
                 matchesSearch &&
                 matchesFavorite;
 
-
-            card.hidden = !visible;
-
+            card.hidden =
+                !visible;
 
             if (visible) {
                 visibleCount += 1;
             }
-
         });
 
 
@@ -335,7 +264,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             countElement.textContent =
                 String(visibleCount);
-
         }
 
 
@@ -345,7 +273,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 visibleCount === 1
                     ? "entry"
                     : "entries";
-
         }
 
 
@@ -353,15 +280,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             emptyState.hidden =
                 visibleCount !== 0;
-
         }
-
     }
 
-
-    /* =========================================================
-       SORT
-       ========================================================= */
 
     function applySort() {
 
@@ -369,7 +290,6 @@ document.addEventListener("DOMContentLoaded", function () {
             sortSelect
                 ? sortSelect.value
                 : "newest";
-
 
         const sorted =
             [...cards].sort(
@@ -380,41 +300,31 @@ document.addEventListener("DOMContentLoaded", function () {
                             a.dataset.published
                         );
 
-
                     const bDate =
                         new Date(
                             b.dataset.published
                         );
 
-
                     if (mode === "oldest") {
-
                         return aDate - bDate;
-
                     }
 
-
                     return bDate - aDate;
-
                 }
             );
 
 
-        sorted.forEach(function (card) {
+        sorted.forEach(
+            function (card) {
 
-            grid.appendChild(card);
-
-        });
+                grid.appendChild(card);
+            }
+        );
 
 
         applyFilters();
-
     }
 
-
-    /* =========================================================
-       FAVORITE BUTTON EVENTS
-       ========================================================= */
 
     document
         .querySelectorAll(".favorite-button")
@@ -427,14 +337,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     const slug =
                         button.dataset.favoriteSlug;
 
-
                     const favorites =
                         getFavorites();
 
-
                     const exists =
                         favorites.includes(slug);
-
 
                     const updated =
                         exists
@@ -442,7 +349,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                 function (item) {
 
                                     return item !== slug;
-
                                 }
                             )
                             : [
@@ -453,21 +359,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     setFavorites(updated);
 
-
                     renderFavorites();
-
-
                     applyFilters();
-
                 }
             );
-
         });
 
-
-    /* =========================================================
-       SEARCH EVENT
-       ========================================================= */
 
     if (searchInput) {
 
@@ -475,13 +372,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "input",
             applyFilters
         );
-
     }
 
-
-    /* =========================================================
-       FAVORITES FILTER EVENT
-       ========================================================= */
 
     if (favoritesFilter) {
 
@@ -490,9 +382,10 @@ document.addEventListener("DOMContentLoaded", function () {
             function () {
 
                 const active =
-                    favoritesFilter.getAttribute(
-                        "aria-pressed"
-                    ) === "true";
+                    favoritesFilter
+                        .getAttribute(
+                            "aria-pressed"
+                        ) === "true";
 
 
                 favoritesFilter.setAttribute(
@@ -503,33 +396,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-                const icon =
-                    favoritesFilter.querySelector(
-                        "span"
-                    );
-
-
-                if (icon) {
-
-                    icon.textContent =
+                favoritesFilter
+                    .querySelector("span")
+                    .textContent =
                         active
                             ? "♡"
                             : "♥";
 
-                }
-
 
                 applyFilters();
-
             }
         );
-
     }
 
-
-    /* =========================================================
-       SORT EVENT
-       ========================================================= */
 
     if (sortSelect) {
 
@@ -537,34 +416,21 @@ document.addEventListener("DOMContentLoaded", function () {
             "change",
             applySort
         );
-
     }
 
 
-    /* =========================================================
-       INITIAL LOAD
-       ========================================================= */
-
     renderFavorites();
-
     renderReadingActivity();
-
     applySort();
 
-
-    /* Refresh saved information when returning
-       from an article page */
 
     window.addEventListener(
         "pageshow",
         function () {
 
             renderFavorites();
-
             renderReadingActivity();
-
             applyFilters();
-
         }
     );
 

@@ -40,48 +40,7 @@
             </div>
         </div>
 
-
-        <header class="site-header">
-
-            <div class="container navbar">
-
-                <a href="{{ url_for('home') }}" class="logo">
-                    Learning Path
-                </a>
-
-                <nav
-                    class="nav-links"
-                    aria-label="Main navigation"
-                >
-                    <a
-                        href="{{ url_for('home') }}"
-                        class="nav-link nav-red"
-                    >
-                        Home
-                    </a>
-
-                    <a
-                        href="{{ url_for('blog') }}"
-                        class="nav-link nav-blue"
-                        aria-current="page"
-                    >
-                        Blog
-                    </a>
-
-                    <a
-                        href="{{ url_for('about') }}"
-                        class="nav-link nav-red"
-                    >
-                        About
-                    </a>
-                </nav>
-
-            </div>
-
-        </header>
-
-
-        <main
+<main
             class="category-page"
             data-category="{{ category_slug }}"
         >
@@ -257,18 +216,28 @@
                                     {{ entry.description }}
                                 </p>
 
+
                                 <div class="category-post-meta">
 
-    <span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-            <path d="M8 3v4M16 3v4M3 10h18"></path>
-        </svg>
+                                    <span>
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                                            <path d="M8 3v4M16 3v4M3 10h18"></path>
+                                        </svg>
 
-        Published {{ entry.date }}
-    </span>
+                                        Published {{ entry.date }}
+                                    </span>
 
-</div>
+                                    <span>
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <path d="M12 7v5l3 2"></path>
+                                        </svg>
+
+                                        {{ entry.reading_time }}
+                                    </span>
+
+                                </div>
 
 
                                 <div class="reader-activity">
