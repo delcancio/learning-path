@@ -1973,141 +1973,6 @@ main {
 }
 
 /* =========================================================
-   SEAMLESS WARM CREAM + SUBTLE BLUSH BACKGROUND
-   No visible lines between sections
-   Footer and browser bar are untouched
-   ========================================================= */
-
-:root {
-    --continuous-cream: #fffaf2;
-}
-
-
-/* Header matches the exact starting color of main */
-
-.site-header {
-    background-color: var(--continuous-cream);
-}
-
-
-/* One continuous background from Hero to About Me */
-
-main {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle 520px at 92% 8%,
-            rgba(247, 193, 148, 0.18) 0%,
-            rgba(247, 193, 148, 0.08) 42%,
-            transparent 75%
-        ),
-        radial-gradient(
-            circle 460px at 7% 36%,
-            rgba(207, 128, 128, 0.09) 0%,
-            rgba(207, 128, 128, 0.04) 45%,
-            transparent 75%
-        ),
-        radial-gradient(
-            circle 520px at 94% 66%,
-            rgba(241, 184, 148, 0.12) 0%,
-            rgba(241, 184, 148, 0.045) 45%,
-            transparent 76%
-        ),
-        radial-gradient(
-            circle 420px at 12% 92%,
-            rgba(190, 105, 105, 0.08) 0%,
-            rgba(190, 105, 105, 0.035) 45%,
-            transparent 75%
-        ),
-        linear-gradient(
-            180deg,
-            #fffaf2 0%,
-            #fff9f0 35%,
-            #fff7ed 68%,
-            #fff5ea 100%
-        );
-}
-
-
-/* Remove individual section backgrounds and dividing lines */
-
-.hero,
-.entries-section,
-.about-section {
-    position: relative;
-
-    background: transparent !important;
-    background-color: transparent !important;
-
-    border-top: 0 !important;
-    border-bottom: 0 !important;
-}
-
-
-/* Keep all content above the background */
-
-.hero > .container,
-.entries-section > .container,
-.about-section > .container {
-    position: relative;
-    z-index: 2;
-}
-
-
-/* Remove old section decorations that may create hard edges */
-
-.hero::before,
-.hero::after,
-.entries-section::before,
-.entries-section::after,
-.about-section::before,
-.about-section::after {
-    content: none !important;
-    display: none !important;
-}
-
-
-/* Keep cards solid and readable */
-
-.featured-card,
-.recent-card,
-.about-card {
-    background-color: #ffffff;
-}
-
-
-/* Mobile version remains seamless */
-
-@media (max-width: 760px) {
-    .site-header {
-        background-color: #fffaf2;
-    }
-
-    main {
-        background:
-            radial-gradient(
-                circle 280px at 100% 10%,
-                rgba(247, 193, 148, 0.14),
-                transparent 75%
-            ),
-            radial-gradient(
-                circle 260px at 0% 62%,
-                rgba(190, 105, 105, 0.07),
-                transparent 75%
-            ),
-            linear-gradient(
-                180deg,
-                #fffaf2 0%,
-                #fff8ef 55%,
-                #fff5ea 100%
-            );
-    }
-}
-
-/* =========================================================
    HERO IMAGE 3D INTERACTIVE EFFECT
    ========================================================= */
 
@@ -2258,4 +2123,24 @@ main {
 .featured-image-wrapper,
 .recent-image-wrapper {
     overflow: hidden;
+}
+
+/* =========================================================
+   FINAL BACKGROUND RESTORE
+   Warm cream background: #FFFBF3
+   Keeps cards, browser bar, and footer unchanged
+   ========================================================= */
+
+body {
+    background-color: #FFFBF3;
+}
+
+.website-wrapper,
+.site-header,
+.hero,
+.entries-section,
+.about-section {
+    background: #FFFBF3;
+    background-color: #FFFBF3;
+    background-image: none;
 }
