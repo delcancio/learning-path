@@ -72,393 +72,445 @@
                 </div>
 
 
-                <!-- Main Profile Card -->
+                <!-- =========================================================
+                     PROFESSIONAL DEVELOPER PROFILE LAYOUT
+                     ========================================================= -->
 
-                <section class="profile-hero">
-
-                    <!-- Pixel Stickers -->
-
-                    <span
-                        class="pixel-sticker sticker-star"
-                        aria-hidden="true"
-                    >
-                        ★
-                    </span>
-
-                    <span
-                        class="pixel-sticker sticker-music"
-                        aria-hidden="true"
-                    >
-                        ♪
-                    </span>
-
-                    <span
-                        class="pixel-sticker sticker-film"
-                        aria-hidden="true"
-                    >
-                        ▶
-                    </span>
-
-                    <span
-                        class="pixel-sticker sticker-cursor"
-                        aria-hidden="true"
-                    >
-                        ↖
-                    </span>
+                <div class="developer-profile-layout">
 
 
-                    <!-- Profile Image -->
+                    <!-- =====================================================
+                         LEFT PROFILE RAIL
+                         ===================================================== -->
 
-                    <div class="profile-image-column">
+                    <aside class="developer-profile-sidebar">
 
-                        <div class="profile-image-frame">
+                        <div class="sidebar-profile-image">
 
                             <img
                                 src="{{ url_for('static', filename='images/about-avatar.png') }}"
                                 alt="Profile illustration of Deljoy Cancio"
-                                class="profile-image"
                             >
 
                         </div>
 
-                        <div class="profile-status">
+
+                        <div class="sidebar-identity">
+
+                            <p class="sidebar-eyebrow">
+                                Behind Learning Path
+                            </p>
+
+                            <h1>
+                                Deljoy Cancio
+                            </h1>
+
+                            <p class="sidebar-role">
+                                BSIT Student
+                                <span aria-hidden="true">•</span>
+                                Design
+                                <span aria-hidden="true">•</span>
+                                Technology
+                            </p>
+
+                        </div>
+
+
+                        <div class="sidebar-status">
                             <span class="status-dot"></span>
-                            studyante sa buntag, wakwak sa gabie
+                            basta studyante
+                        </div>
+
+
+                        <p class="sidebar-summary">
+                            I enjoy turning ideas into clean digital experiences
+                            while continuously learning through projects, lessons,
+                            and personal exploration.
+                        </p>
+
+
+                        <a
+                            href="{{ url_for('blog') }}"
+                            class="sidebar-primary-button"
+                        >
+                            <span>Explore My Entries</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+
+                        <!-- Contact icons only -->
+
+                        <div class="sidebar-contact">
+
+                            <p class="sidebar-contact-label">
+                                Connect
+                            </p>
+
+                            <div
+                                class="sidebar-contact-icons"
+                                aria-label="Contact and social links"
+                            >
+
+                                <!-- Email -->
+
+                                <a
+                                    href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=deljoy.cancio@urios.edu.ph&amp;su=Message%20from%20Learning%20Path"
+                                    class="sidebar-social-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Send an email"
+                                    title="Email"
+                                >
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"></path>
+                                        <path d="m3 8 9 6 9-6"></path>
+                                    </svg>
+                                </a>
+
+
+                                <!-- Facebook -->
+
+                                <a
+                                    href="https://www.facebook.com/share/1BW9eo71Fx/"
+                                    class="sidebar-social-link sidebar-social-fill"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit Facebook profile"
+                                    title="Facebook"
+                                >
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v6h4v-6h3.3l.7-4H13V9c0-.7.3-1 1-1Z"></path>
+                                    </svg>
+                                </a>
+
+
+                                <!-- GitHub -->
+
+                                <a
+                                    href="https://github.com/delcancio"
+                                    class="sidebar-social-link sidebar-social-fill"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit GitHub profile"
+                                    title="GitHub"
+                                >
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 .8a11.2 11.2 0 0 0-3.5 21.8c.6.1.8-.2.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.3 1.1-3-.1-.3-.5-1.4.1-3 0 0 .9-.3 3.1 1.1a10.5 10.5 0 0 1 5.6 0c2.1-1.4 3.1-1.1 3.1-1.1.6 1.6.2 2.7.1 3 .7.7 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.4.8 1 .8 2v3c0 .4.2.7.8.6A11.2 11.2 0 0 0 12 .8Z"></path>
+                                    </svg>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+
+                    <!-- =====================================================
+                         RIGHT PROFILE CONTENT
+                         ===================================================== -->
+
+                    <div class="developer-profile-content">
+
+
+                        <!-- About -->
+
+                        <section class="developer-about-panel">
+
+                            <p class="section-label">
+                                About
+                            </p>
+
+                            <h2>
+                                Learning by building,
+                                reflecting, and improving.
+                            </h2>
+
+                            <div class="developer-about-copy">
+
+                                <p>
+                                    I’m a third-year Bachelor of Science in Information
+                                    Technology student at FSUU. I enjoy designing and
+                                    turning simple ideas into clean, meaningful, and
+                                    visually engaging digital experiences.
+                                </p>
+
+                                <p>
+                                    I’m a cheerful person who enjoys learning new things.
+                                    I may not always learn quickly, and failures can
+                                    sometimes discourage me, but I continue trying,
+                                    improving, and learning from every experience.
+                                    Through Learning Path, I share the projects, lessons,
+                                    and insights that shape my journey in technology and design.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- Bento information grid -->
+
+                        <div class="developer-bento-grid">
+
+
+                            <!-- Personal Details -->
+
+                            <section class="developer-bento-card developer-details-card">
+
+                                <div class="bento-card-heading">
+
+                                    <div>
+                                        <p class="section-label">
+                                            Personal Information
+                                        </p>
+
+                                        <h2>
+                                            Personal Details
+                                        </h2>
+                                    </div>
+
+                                    <span class="bento-number" aria-hidden="true">
+                                        01
+                                    </span>
+
+                                </div>
+
+
+                                <div class="developer-details-list">
+
+
+                                    <!-- Name -->
+
+                                    <div class="developer-detail-row">
+
+                                        <span class="developer-detail-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm-8 10c0-4.4 3.6-8 8-8s8 3.6 8 8"></path>
+                                            </svg>
+                                        </span>
+
+                                        <div>
+                                            <span class="developer-detail-label">
+                                                Name
+                                            </span>
+
+                                            <strong>
+                                                Deljoy Cancio
+                                            </strong>
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- Course -->
+
+                                    <div class="developer-detail-row">
+
+                                        <span class="developer-detail-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24">
+                                                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                                                <path d="M8 21h8"></path>
+                                                <path d="M12 17v4"></path>
+                                            </svg>
+                                        </span>
+
+                                        <div>
+                                            <span class="developer-detail-label">
+                                                Course
+                                            </span>
+
+                                            <strong>
+                                                Bachelor of Science in Information Technology (BSIT)
+                                            </strong>
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- School -->
+
+                                    <div class="developer-detail-row">
+
+                                        <span class="developer-detail-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M3 21h18"></path>
+                                                <path d="M5 21V9"></path>
+                                                <path d="M19 21V9"></path>
+                                                <path d="M3 9 12 3l9 6"></path>
+                                                <path d="M9 21v-6h6v6"></path>
+                                            </svg>
+                                        </span>
+
+                                        <div>
+                                            <span class="developer-detail-label">
+                                                School
+                                            </span>
+
+                                            <strong>
+                                                Father Saturnino Urios University
+                                            </strong>
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- Year -->
+
+                                    <div class="developer-detail-row">
+
+                                        <span class="developer-detail-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M2 10 12 5l10 5-10 5L2 10Z"></path>
+                                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                                            </svg>
+                                        </span>
+
+                                        <div>
+                                            <span class="developer-detail-label">
+                                                Year Level
+                                            </span>
+
+                                            <strong>
+                                                Third-Year Student
+                                            </strong>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- Interests -->
+
+                            <section class="developer-bento-card developer-interests-card">
+
+                                <div class="bento-card-heading">
+
+                                    <div>
+                                        <p class="section-label">
+                                            Beyond Academics
+                                        </p>
+
+                                        <h2>
+                                            Things I Love
+                                        </h2>
+                                    </div>
+
+                                    <span class="bento-number" aria-hidden="true">
+                                        02
+                                    </span>
+
+                                </div>
+
+
+                                <div class="developer-interest-list">
+
+                                    <article class="developer-interest-row">
+
+                                        <span class="developer-interest-symbol">
+                                            ✦
+                                        </span>
+
+                                        <div>
+                                            <span>Creative Interest</span>
+                                            <h3>Designing</h3>
+                                            <p>
+                                                Organizing visual elements and creating
+                                                interfaces that feel useful and intentional.
+                                            </p>
+                                        </div>
+
+                                    </article>
+
+
+                                    <article class="developer-interest-row">
+
+                                        <span class="developer-interest-symbol blue">
+                                            ♫
+                                        </span>
+
+                                        <div>
+                                            <span>Everyday Inspiration</span>
+                                            <h3>Music</h3>
+                                            <p>
+                                                Music helps me focus, relax, and find
+                                                inspiration while studying and creating.
+                                            </p>
+                                        </div>
+
+                                    </article>
+
+
+                                    <article class="developer-interest-row">
+
+                                        <span class="developer-interest-symbol dark">
+                                            ▷
+                                        </span>
+
+                                        <div>
+                                            <span>Favorite Entertainment</span>
+                                            <h3>Action and Horror Movies</h3>
+                                            <p>
+                                                I enjoy the energy of action films and
+                                                the suspense and atmosphere of horror.
+                                            </p>
+                                        </div>
+
+                                    </article>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- Journey -->
+
+                            <section class="developer-bento-card developer-journey-card">
+
+                                <div class="journey-copy">
+
+                                    <p class="section-label">
+                                        My Learning Journey
+                                    </p>
+
+                                    <h2>
+                                        Learning, creating, and improving
+                                        one project at a time.
+                                    </h2>
+
+                                    <p>
+                                        My goal is to continue developing my skills,
+                                        explore new technologies, and create digital
+                                        experiences that are clear, useful, and meaningful.
+                                        Every project gives me another opportunity to
+                                        practice, solve problems, and become a better
+                                        information technology student.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="journey-tags">
+
+                                    <span>Web Development</span>
+                                    <span>UI Design</span>
+                                    <span>Information Technology</span>
+                                    <span>Continuous Learning</span>
+
+                                </div>
+
+                            </section>
+
+
                         </div>
 
                     </div>
 
-
-                    <!-- Introduction -->
-
-                    <div class="profile-introduction">
-
-                        <p class="profile-eyebrow">
-    Behind Learning Path
-</p>
-
-                        <h1 class="profile-name">
-                            Hi, I’m
-                            <span>Deljoy Cancio!</span>
-                        </h1>
-
-                        <p class="profile-intro-text">
-    I’m a third-year Bachelor of Science in Information Technology
-    student at FSUU. I enjoy designing and turning simple ideas into
-    clean, meaningful, and visually engaging digital experiences.
-</p>
-
-<p class="profile-intro-text">
-    I’m a cheerful person who enjoys learning new things. I may not
-    always learn quickly, and failures can sometimes discourage me,
-    but I continue trying, improving, and learning from every experience.
-    Through Learning Path, I share the projects, lessons, and insights
-    that shape my journey in technology and design.
-</p>
-
-                        <div class="profile-buttons">
-
-                            <a
-                                href="{{ url_for('blog') }}"
-                                class="profile-primary-button"
-                            >
-                                Explore My Entries
-                                <span aria-hidden="true">→</span>
-                            </a>
-
-                            <a
-                                href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=deljoy.cancio@urios.edu.ph&amp;su=Message%20from%20Learning%20Path"
-                                class="profile-secondary-button"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Compose an email to Deljoy Cancio in Gmail"
-                            >
-                                Contact Me
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =========================================================
-                     PERSONAL DETAILS
-                     ========================================================= -->
-
-                <section class="profile-section personal-details-section">
-
-                    <div class="profile-section-heading">
-
-                        <p class="section-label">
-                            Personal Information
-                        </p>
-
-                        <h2>
-                            Personal Details
-                        </h2>
-
-                        <p class="section-description">
-                            A quick overview of my academic background
-                            and current studies.
-                        </p>
-
-                    </div>
-
-
-                    <div class="personal-details-grid">
-
-    <!-- Name -->
-    <article class="personal-detail-card">
-
-        <span class="detail-icon detail-icon-name" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-                <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm-8 10c0-4.4 3.6-8 8-8s8 3.6 8 8"></path>
-            </svg>
-        </span>
-
-        <div class="personal-detail-text">
-            <p class="personal-detail-label">
-                Name
-            </p>
-
-            <p class="personal-detail-value">
-                Deljoy Cancio
-            </p>
-        </div>
-
-    </article>
-
-
-    <!-- Course -->
-    <article class="personal-detail-card">
-
-        <span class="detail-icon detail-icon-course" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
-                <path d="M8 21h8"></path>
-                <path d="M12 17v4"></path>
-                <path d="m9 9-2 2 2 2"></path>
-                <path d="m15 9 2 2-2 2"></path>
-            </svg>
-        </span>
-
-        <div class="personal-detail-text">
-            <p class="personal-detail-label">
-                Course
-            </p>
-
-            <p class="personal-detail-value">
-                Bachelor of Science in Information Technology (BSIT)
-            </p>
-        </div>
-
-    </article>
-
-
-    <!-- School -->
-    <article class="personal-detail-card">
-
-        <span class="detail-icon detail-icon-school" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-                <path d="M3 21h18"></path>
-                <path d="M5 21V9"></path>
-                <path d="M19 21V9"></path>
-                <path d="M3 9 12 3l9 6"></path>
-                <path d="M9 21v-6h6v6"></path>
-                <path d="M8 11h1"></path>
-                <path d="M15 11h1"></path>
-            </svg>
-        </span>
-
-        <div class="personal-detail-text">
-            <p class="personal-detail-label">
-                School
-            </p>
-
-            <p class="personal-detail-value">
-                Father Saturnino Urios University
-            </p>
-        </div>
-
-    </article>
-
-
-    <!-- Year Level -->
-    <article class="personal-detail-card">
-
-        <span class="detail-icon detail-icon-year" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-                <path d="M2 10 12 5l10 5-10 5L2 10Z"></path>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                <path d="M22 10v6"></path>
-            </svg>
-        </span>
-
-        <div class="personal-detail-text">
-            <p class="personal-detail-label">
-                Year Level
-            </p>
-
-            <p class="personal-detail-value">
-                Third-Year Student
-            </p>
-        </div>
-
-    </article>
-
-</div>
-                </section>
-
-
-                <!-- Interests -->
-
-                <section class="profile-section interests-section">
-
-                    <div class="profile-section-heading">
-
-                        <p class="section-label">
-                            Beyond Academics
-                        </p>
-
-                        <h2>
-                            Things I Love
-                        </h2>
-
-                        <p class="section-description">
-                            These interests help me stay creative, inspired,
-                            and motivated outside my academic work.
-                        </p>
-
-                    </div>
-
-
-                    <div class="interests-grid">
-
-                        <article class="interest-card">
-
-                            <div class="interest-icon">
-                                ✦
-                            </div>
-
-                            <div>
-
-                                <p class="interest-category">
-                                    Creative Interest
-                                </p>
-
-                                <h3>
-                                    Designing
-                                </h3>
-
-                                <p>
-                                    I enjoy organizing visual elements,
-                                    experimenting with layouts, and creating
-                                    interfaces that are both useful and
-                                    visually appealing.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-
-                        <article class="interest-card">
-
-                            <div class="interest-icon">
-                                ♫
-                            </div>
-
-                            <div>
-
-                                <p class="interest-category">
-                                    Everyday Inspiration
-                                </p>
-
-                                <h3>
-                                    Music
-                                </h3>
-
-                                <p>
-                                    Music helps me focus, relax, and find new
-                                    inspiration while studying, designing, or
-                                    working on personal projects.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-
-                        <article class="interest-card">
-
-                            <div class="interest-icon">
-                                ▷
-                            </div>
-
-                            <div>
-
-                                <p class="interest-category">
-                                    Favorite Entertainment
-                                </p>
-
-                                <h3>
-                                    Action and Horror Movies
-                                </h3>
-
-                                <p>
-                                    I enjoy the excitement of action films and
-                                    the suspense, mystery, and atmosphere found
-                                    in horror movies.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-                </section>
-
-
-                <!-- Learning Journey -->
-
-                <section class="profile-journey">
-
-                    <div class="journey-content">
-
-                        <p class="section-label">
-                            My Learning Journey
-                        </p>
-
-                        <h2>
-                            Learning, creating, and improving one project at a time.
-                        </h2>
-
-                        <p>
-                            My goal is to continue developing my skills,
-                            explore new technologies, and create digital
-                            experiences that are clear, useful, and meaningful.
-                            Every project gives me another opportunity to
-                            practice, solve problems, and become a better
-                            information technology student.
-                        </p>
-
-                    </div>
-
-
-                    <div class="journey-tags">
-
-                        <span>Web Development</span>
-                        <span>UI Design</span>
-                        <span>Information Technology</span>
-                        <span>Continuous Learning</span>
-
-                    </div>
-
-                </section>
+                </div>
 
             </div>
 

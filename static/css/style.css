@@ -2609,3 +2609,944 @@ body {
     left: 0;
     width: 100%;
 }
+
+/* =========================================================
+   HOMEPAGE CLEAN WHITE LAYOUT
+   White background + wider side margins
+   Keeps existing design unchanged
+   ========================================================= */
+
+/* White homepage background */
+body,
+.website-wrapper,
+.site-header,
+.hero,
+.entries-section,
+.about-section {
+    background: #ffffff;
+    background-color: #ffffff;
+    background-image: none;
+}
+
+
+/* =========================================================
+   DESKTOP SHARED ALIGNMENT
+   Navbar / Hero / Featured / Recent / About
+   ========================================================= */
+
+@media (min-width: 1001px) {
+
+    .site-header > .container,
+    .hero > .container,
+    .entries-section > .container,
+    .about-section > .container {
+
+        /* Bigger empty margins on left and right */
+        width: calc(100% - 360px);
+
+        /* Prevent content from becoming too wide */
+        max-width: 1180px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* Featured + Recent headings stay aligned */
+    .entries-heading {
+        margin-left: 0;
+    }
+
+    .recent-header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    /* About card follows the EXACT same width above */
+    .about-card {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+}
+
+
+/* =========================================================
+   MEDIUM LAPTOP
+   Don't make margins too large on smaller screens
+   ========================================================= */
+
+@media (min-width: 1001px) and (max-width: 1450px) {
+
+    .site-header > .container,
+    .hero > .container,
+    .entries-section > .container,
+    .about-section > .container {
+        width: calc(100% - 220px);
+        max-width: 1180px;
+    }
+
+}
+
+
+/* Footer stays exactly as it is */
+.site-footer {
+    width: 100%;
+}
+
+/* =========================================================
+   FINAL CLEAN HOMEPAGE NAVBAR
+   Removes browser-style top bar and keeps the compact
+   white navbar shown in the requested reference.
+   ========================================================= */
+
+/* No fake browser border / circles and no reserved top space */
+.browser-bar,
+.browser-circles,
+.browser-circle {
+    display: none !important;
+}
+
+.website-wrapper {
+    padding-top: 0 !important;
+}
+
+
+/* Clean white header */
+.site-header {
+    width: 100%;
+    background: #ffffff !important;
+    border: 0 !important;
+    border-bottom: 1px solid #e7e7e7 !important;
+    box-shadow: none !important;
+}
+
+
+/* Desktop navbar: compact, clean, same content frame as homepage */
+@media (min-width: 1001px) {
+
+    .site-header > .container {
+        width: calc(100% - 360px);
+        max-width: 1180px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .navbar {
+        height: 88px !important;
+        padding: 0 !important;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        position: relative;
+        left: 0 !important;
+        top: 0 !important;
+
+        color: #000000;
+
+        font-family: "Great Vibes", cursive;
+        font-size: 48px !important;
+        font-weight: 400;
+        line-height: 1;
+
+        white-space: nowrap;
+    }
+
+    .nav-links {
+        position: relative;
+        left: 0 !important;
+        top: 0 !important;
+
+        margin-right: 0 !important;
+
+        display: flex;
+        align-items: center;
+        gap: 14px !important;
+    }
+
+    .nav-link {
+        min-width: 74px !important;
+        height: 30px !important;
+        padding: 0 16px !important;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 999px;
+
+        color: #ffffff;
+
+        font-family: "Inter", Arial, sans-serif;
+        font-size: 12px !important;
+        font-weight: 500;
+        line-height: 1;
+    }
+}
+
+
+/* Medium laptop keeps the same clean proportion */
+@media (min-width: 1001px) and (max-width: 1450px) {
+
+    .site-header > .container {
+        width: calc(100% - 220px);
+        max-width: 1180px;
+    }
+
+}
+
+
+/* Tablet / small laptop */
+@media (max-width: 1000px) {
+
+    .site-header {
+        background: #ffffff !important;
+    }
+
+    .navbar {
+        min-height: 82px;
+        height: auto;
+    }
+
+    .logo {
+        top: 0 !important;
+        font-size: 46px !important;
+    }
+
+    .nav-links {
+        top: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .nav-link {
+        min-width: 72px;
+        height: 29px;
+        padding: 0 15px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* Small tablet / mobile */
+@media (max-width: 850px) {
+
+    .navbar {
+        padding: 20px 0 !important;
+
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .logo {
+        font-size: 44px !important;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 9px !important;
+    }
+
+    .nav-link {
+        min-width: 70px !important;
+        height: 29px !important;
+        padding: 0 14px !important;
+
+        font-size: 12px !important;
+    }
+}
+
+/* =========================================================
+   FINAL ALL-WHITE HOMEPAGE BACKGROUND
+   Keeps the existing layout/design; only makes the homepage
+   and its content surfaces white.
+   ========================================================= */
+
+html,
+body,
+.website-wrapper,
+.site-header,
+main,
+.hero,
+.entries-section,
+.about-section {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+}
+
+.featured-card,
+.featured-content,
+.recent-card,
+.recent-card-content,
+.about-card,
+.about-avatar-wrapper {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+}
+
+/* Footer remains red so its existing white text/icons stay readable */
+.site-footer {
+    background-color: var(--red) !important;
+}
+
+/* =========================================================
+   FINAL MOBILE DESKTOP-LIKE HOMEPAGE
+   Keeps the desktop visual language on smaller screens:
+   same left alignment, same section order, same card style.
+   Only stacks elements when the screen is too narrow.
+   ========================================================= */
+
+/* Keep the small hero label aligned with "Where" everywhere */
+.hero-label {
+    left: 0 !important;
+    margin-left: 0 !important;
+    transform: none !important;
+}
+
+
+/* =========================================================
+   TABLET / NARROW LAPTOP
+   Preserve the desktop two-column hero while space allows.
+   ========================================================= */
+
+@media (min-width: 651px) and (max-width: 900px) {
+
+    .container {
+        width: calc(100% - 48px);
+    }
+
+    /* Keep navbar in one horizontal row like desktop */
+    .navbar {
+        min-height: 78px !important;
+        height: 78px !important;
+        padding: 0 !important;
+
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px !important;
+    }
+
+    .logo {
+        position: relative;
+        top: 0 !important;
+
+        font-size: 43px !important;
+        line-height: 1;
+    }
+
+    .nav-links {
+        position: relative;
+        top: 0 !important;
+
+        margin-right: 0 !important;
+
+        flex-wrap: nowrap;
+        justify-content: flex-end !important;
+        gap: 8px !important;
+    }
+
+    .nav-link {
+        min-width: 66px !important;
+        height: 29px !important;
+        padding: 0 13px !important;
+
+        font-size: 11px !important;
+    }
+
+
+    /* Hero still reads like desktop */
+    .hero-layout {
+        min-height: 470px;
+        padding: 48px 0 58px;
+
+        flex-direction: row !important;
+        align-items: center;
+        gap: 28px !important;
+    }
+
+    .hero-content {
+        width: 48% !important;
+        max-width: none !important;
+
+        text-align: left !important;
+    }
+
+    .hero-image-container {
+        width: 52% !important;
+        max-width: none !important;
+
+        justify-content: flex-end !important;
+    }
+
+    .hero-label {
+        margin-bottom: 9px;
+
+        font-size: 12px;
+        text-align: left;
+    }
+
+    .hero-title {
+        font-size: clamp(38px, 5.5vw, 46px) !important;
+        line-height: 1.02;
+        letter-spacing: -1.2px;
+    }
+
+    .hero-description {
+        max-width: 100%;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+
+        font-size: 13px !important;
+        line-height: 1.42;
+
+        text-align: left;
+    }
+
+    .hero-button {
+        margin: 0 !important;
+    }
+
+    .hero-image {
+        width: min(100%, 420px) !important;
+        max-width: 100% !important;
+
+        transform: none !important;
+    }
+
+
+    /* Featured keeps the same horizontal desktop relationship */
+    .featured-card {
+        min-height: 360px;
+
+        grid-template-columns: 48% 52% !important;
+    }
+
+    .featured-image-wrapper,
+    .featured-content {
+        min-height: 360px !important;
+        height: 360px;
+    }
+
+    .featured-content {
+        padding: 34px 28px 24px;
+    }
+
+    .featured-title {
+        font-size: 25px;
+    }
+
+    .featured-description {
+        font-size: 13px;
+    }
+
+
+    /* Recent still looks like the desktop card system */
+    .recent-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 22px !important;
+    }
+
+    .recent-card {
+        min-height: 390px;
+    }
+
+
+    /* About retains desktop-style image + text split */
+    .about-card {
+        padding: 38px 34px;
+
+        grid-template-columns: 190px minmax(0, 1fr) !important;
+        align-items: center;
+
+        gap: 32px;
+
+        text-align: left !important;
+    }
+
+    .about-avatar-wrapper {
+        width: 175px;
+        height: 175px;
+        margin: 0 !important;
+    }
+
+    .about-title-row {
+        justify-content: flex-start !important;
+    }
+
+    .about-title {
+        font-size: 38px;
+    }
+
+    .about-description {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        padding-right: 45px;
+
+        font-size: 13px;
+
+        text-align: left !important;
+    }
+
+    .about-button {
+        margin: 0 !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   Same visual order as desktop, but stacked cleanly.
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: calc(100% - 32px) !important;
+    }
+
+
+    /* -----------------------------------------
+       NAVBAR
+       Keep logo left + navigation right like desktop
+       ----------------------------------------- */
+
+    .site-header {
+        background: #ffffff !important;
+    }
+
+    .navbar {
+        min-height: 68px !important;
+        height: 68px !important;
+        padding: 0 !important;
+
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px !important;
+    }
+
+    .logo {
+        position: relative;
+        top: 0 !important;
+
+        flex: 0 0 auto;
+
+        font-size: 34px !important;
+        line-height: 1;
+    }
+
+    .nav-links {
+        position: relative;
+        top: 0 !important;
+
+        margin-right: 0 !important;
+
+        flex-wrap: nowrap !important;
+        justify-content: flex-end !important;
+        gap: 5px !important;
+    }
+
+    .nav-link {
+        min-width: 52px !important;
+        height: 25px !important;
+        padding: 0 8px !important;
+
+        font-size: 9px !important;
+    }
+
+
+    /* -----------------------------------------
+       HERO
+       Same desktop order: text first, artwork second.
+       Everything remains left-aligned.
+       ----------------------------------------- */
+
+    .hero-layout {
+        min-height: auto !important;
+        padding: 42px 0 48px !important;
+
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        gap: 30px !important;
+    }
+
+    .hero-content,
+    .hero-image-container {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .hero-content {
+        text-align: left !important;
+    }
+
+    .hero-label {
+        left: 0 !important;
+
+        margin: 0 0 8px !important;
+
+        font-size: 11px !important;
+
+        text-align: left !important;
+    }
+
+    .hero-title {
+        margin-bottom: 24px;
+
+        font-size: clamp(39px, 11vw, 48px) !important;
+        line-height: 1.02;
+
+        letter-spacing: -1.2px !important;
+
+        text-align: left !important;
+    }
+
+    .hero-title-line {
+        white-space: normal;
+    }
+
+    .hero-description {
+        width: 100%;
+        max-width: 100%;
+
+        margin-right: 0 !important;
+        margin-bottom: 26px;
+        margin-left: 0 !important;
+
+        font-size: 14px !important;
+        line-height: 1.48;
+
+        text-align: left !important;
+    }
+
+    .hero-button {
+        margin: 0 !important;
+    }
+
+    .hero-image-container {
+        justify-content: center !important;
+    }
+
+    .hero-image {
+        left: 0 !important;
+        top: 0 !important;
+
+        width: min(94%, 390px) !important;
+        max-width: 390px !important;
+
+        margin: 0 auto;
+
+        transform: none !important;
+    }
+
+
+    /* -----------------------------------------
+       FEATURED ENTRY
+       Same card design, stacked only because of width.
+       ----------------------------------------- */
+
+    .entries-section {
+        padding: 48px 0 66px;
+    }
+
+    .entries-heading {
+        margin-left: 0 !important;
+
+        text-align: left;
+    }
+
+    .entries-heading h2 {
+        font-size: 30px;
+    }
+
+    .featured-card {
+        width: 100%;
+
+        grid-template-columns: 1fr !important;
+
+        border-radius: 18px;
+    }
+
+    .featured-image-wrapper {
+        width: 100%;
+        height: 235px !important;
+        min-height: 235px !important;
+    }
+
+    .featured-content {
+        width: 100%;
+        min-height: 0 !important;
+        height: auto !important;
+
+        padding: 26px 22px 22px;
+
+        text-align: left;
+    }
+
+    .featured-title {
+        margin-bottom: 14px;
+
+        font-size: 25px;
+        line-height: 1.12;
+    }
+
+    .featured-description {
+        margin-bottom: 20px;
+
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
+    .read-more-button {
+        margin: 0;
+    }
+
+    .entry-meta {
+        padding-top: 20px;
+
+        justify-content: flex-start !important;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+
+    /* -----------------------------------------
+       RECENT ENTRIES
+       Same card appearance; one card per row.
+       ----------------------------------------- */
+
+    .recent-header {
+        margin-top: 58px;
+        padding: 0 !important;
+
+        align-items: center;
+    }
+
+    .recent-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    .recent-card {
+        min-height: 0 !important;
+
+        border-radius: 15px;
+    }
+
+    .recent-image-wrapper {
+        height: 210px !important;
+    }
+
+    .recent-card-content {
+        min-height: 205px;
+        padding: 22px 20px 18px;
+    }
+
+    .recent-card-title {
+        font-size: 20px;
+    }
+
+    .recent-card-description {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+
+    /* -----------------------------------------
+       BEHIND LEARNING PATH / ABOUT
+       Same hierarchy as desktop, clean mobile stack.
+       ----------------------------------------- */
+
+    .about-section {
+        padding: 54px 0 48px !important;
+    }
+
+    .about-card {
+        min-height: 0 !important;
+
+        padding: 32px 24px 34px !important;
+
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+
+        text-align: left !important;
+    }
+
+    .about-avatar-wrapper {
+        width: 150px !important;
+        height: 150px !important;
+
+        margin: 0 !important;
+    }
+
+    .about-content {
+        max-width: 100% !important;
+    }
+
+    .about-title-row {
+        margin-bottom: 16px;
+
+        justify-content: flex-start !important;
+    }
+
+    .about-title {
+        font-size: 36px !important;
+    }
+
+    .about-description {
+        max-width: 100% !important;
+
+        margin-right: 0 !important;
+        margin-bottom: 24px;
+        margin-left: 0 !important;
+
+        padding-right: 0 !important;
+
+        font-size: 13px !important;
+        line-height: 1.5;
+
+        text-align: left !important;
+    }
+
+    .about-button {
+        margin: 0 !important;
+    }
+
+    .about-computer {
+        top: 16px;
+        right: 16px;
+
+        width: 48px;
+    }
+
+    .about-warning {
+        right: 16px;
+        bottom: 16px;
+
+        width: 32px;
+    }
+
+
+    /* -----------------------------------------
+       FOOTER
+       Same information, clean single-column mobile layout.
+       ----------------------------------------- */
+
+    .footer-main {
+        width: calc(100% - 40px);
+        margin: 0 auto;
+
+        padding-top: 42px;
+        padding-bottom: 36px;
+
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+
+        text-align: left !important;
+    }
+
+    .footer-brand {
+        position: static !important;
+        left: 0 !important;
+
+        max-width: 100%;
+
+        align-items: flex-start !important;
+    }
+
+    .footer-logo {
+        align-self: flex-start !important;
+
+        font-size: 48px !important;
+    }
+
+    .footer-tagline,
+    .footer-brand-line,
+    .footer-description {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .footer-tagline,
+    .footer-description {
+        text-align: left !important;
+        text-align-last: auto !important;
+    }
+
+    .footer-links {
+        align-items: flex-start !important;
+    }
+
+    .footer-contact {
+        text-align: left !important;
+    }
+
+    .social-links {
+        justify-content: flex-start !important;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    .container {
+        width: calc(100% - 24px) !important;
+    }
+
+    .logo {
+        font-size: 30px !important;
+    }
+
+    .nav-links {
+        gap: 4px !important;
+    }
+
+    .nav-link {
+        min-width: 47px !important;
+        height: 24px !important;
+        padding: 0 6px !important;
+
+        font-size: 8px !important;
+    }
+
+    .hero-title {
+        font-size: 38px !important;
+    }
+
+    .hero-description {
+        font-size: 13px !important;
+    }
+
+    .featured-image-wrapper {
+        height: 215px !important;
+        min-height: 215px !important;
+    }
+
+    .featured-title {
+        font-size: 23px;
+    }
+
+    .about-title {
+        font-size: 33px !important;
+    }
+}

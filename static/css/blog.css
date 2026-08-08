@@ -272,3 +272,89 @@
         border-radius: 18px;
     }
 }
+
+/* =========================================================
+   COMPACT CHOOSE CATEGORY FRAME
+   Adds larger left/right margins and slightly reduces the
+   red category panel + cards without redesigning them.
+   ========================================================= */
+
+.category-stage {
+    width: min(100%, 1180px);
+    margin: 0 auto;
+
+    padding: 40px 46px 44px;
+}
+
+.category-grid {
+    gap: 24px;
+}
+
+.category-card {
+    min-height: 292px;
+    padding: 24px 22px 20px;
+}
+
+.category-icon-frame {
+    width: 96px;
+    height: 76px;
+    margin-bottom: 10px;
+}
+
+.category-icon {
+    width: 82px;
+    max-height: 72px;
+}
+
+.category-card-title {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.category-card-description {
+    max-width: 220px;
+    margin-bottom: 16px;
+    font-size: 11px;
+}
+
+.category-card-action {
+    font-size: 10px;
+}
+
+
+/* Medium desktop / laptop */
+@media (max-width: 1350px) {
+
+    .category-stage {
+        width: calc(100% - 120px);
+        max-width: 1120px;
+    }
+}
+
+
+/* Tablet */
+@media (max-width: 900px) {
+
+    .category-stage {
+        width: calc(100% - 48px);
+        padding: 36px 28px 38px;
+    }
+
+    .category-grid {
+        gap: 18px;
+    }
+
+    .category-card {
+        min-height: 270px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 560px) {
+
+    .category-stage {
+        width: calc(100% - 24px);
+        padding: 30px 18px 28px;
+    }
+}

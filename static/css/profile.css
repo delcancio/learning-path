@@ -1,389 +1,140 @@
 /* =========================================================
-   PROFILE / ABOUT PAGE
+   PROFESSIONAL DEVELOPER PROFILE
+   Layout: sticky profile rail + modular bento content
+   Keeps Learning Path colors and typography.
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE
    ========================================================= */
 
 .profile-page {
     min-height: 100vh;
-    padding: 48px 0 95px;
+    padding: 38px 0 90px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #fbf8f5 0%,
-            #f5efeb 100%
-        );
+    background: #ffffff;
 }
 
 .profile-container {
     position: relative;
+
+    width: min(calc(100% - 120px), 1240px);
+    margin: 0 auto;
 }
 
 
 /* =========================================================
-   PROFILE HERO
+   BACK NAVIGATION
    ========================================================= */
 
-.profile-hero {
-    position: relative;
-
-    min-height: 525px;
-    padding: 58px;
-
-    display: grid;
-    grid-template-columns: 340px minmax(0, 1fr);
-    align-items: center;
-    gap: 65px;
-
-    overflow: hidden;
-
-    border: 1px solid rgba(84, 27, 27, 0.14);
-    border-radius: 28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff 0%,
-            #fffdfb 100%
-        );
-
-    box-shadow:
-        0 5px 0 rgba(84, 27, 27, 0.7),
-        0 18px 42px rgba(84, 27, 27, 0.09);
-}
-
-
-/* =========================================================
-   PIXEL STICKERS
-   ========================================================= */
-
-.pixel-sticker {
-    position: absolute;
-    z-index: 3;
-
-    width: 50px;
-    height: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 3px solid #1e1e1e;
-    border-radius: 4px;
-
-    color: #ffffff;
-
-    font-family: "Courier New", monospace;
-    font-size: 23px;
-    font-weight: 900;
-
-    box-shadow:
-        5px 5px 0 #1e1e1e;
-
-    image-rendering: pixelated;
-}
-
-.sticker-star {
-    top: 35px;
-    left: 38px;
-
-    background-color: var(--red, #9a3333);
-    transform: rotate(-8deg);
-}
-
-.sticker-music {
-    top: 40px;
-    right: 48px;
-
-    background-color: var(--blue, #0d47a1);
-    transform: rotate(8deg);
-}
-
-.sticker-film {
-    right: 46px;
-    bottom: 38px;
-
-    background-color: #252525;
-    transform: rotate(-5deg);
-}
-
-.sticker-cursor {
-    bottom: 34px;
-    left: 42px;
-
-    background-color: #d99b33;
-    transform: rotate(7deg);
-}
-
-
-/* =========================================================
-   PROFILE IMAGE
-   ========================================================= */
-
-.profile-image-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-image-frame {
-    position: relative;
-
-    width: 290px;
-    height: 340px;
-    padding: 18px;
-
-    border: 2px solid var(--dark-red, #541b1b);
-    border-radius: 22px;
-
-    background-color: #f4e8e3;
-
-    box-shadow:
-        12px 12px 0 rgba(13, 71, 161, 0.13);
-}
-
-.profile-image {
+.profile-top-navigation {
     width: 100%;
-    height: 100%;
+    margin-bottom: 24px;
 
-    border-radius: 14px;
-
-    object-fit: cover;
-    object-position: center;
-
-    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
 
-.profile-status {
-    margin-top: 22px;
-    padding: 9px 14px;
+.profile-back-link {
+    flex-shrink: 0;
 
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 
-    border: 1px solid rgba(84, 27, 27, 0.12);
-    border-radius: 999px;
-
-    background-color: #ffffff;
-    color: #555555;
+    color: var(--dark-red, #541b1b);
 
     font-family: "Archivo", "Arimo", Arial, sans-serif;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
+
+    transition:
+        color 160ms ease,
+        transform 160ms ease;
 }
 
-.status-dot {
-    width: 8px;
-    height: 8px;
+.profile-back-arrow {
+    width: 35px;
+    height: 35px;
 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(84, 27, 27, 0.22);
     border-radius: 50%;
 
-    background-color: #2d9b62;
-
-    box-shadow: 0 0 0 4px rgba(45, 155, 98, 0.14);
-}
-
-
-/* =========================================================
-   INTRODUCTION
-   ========================================================= */
-
-.profile-introduction {
-    max-width: 720px;
-}
-
-.profile-eyebrow,
-.section-label {
-    margin-bottom: 12px;
-
-    color: var(--blue, #0d47a1);
-
-    font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-}
-
-.profile-name {
-    margin-bottom: 25px;
-
-    color: #202020;
-
-    font-family: "Cardo", Georgia, serif;
-    font-size: clamp(47px, 5vw, 72px);
-    font-weight: 700;
-    line-height: 1.04;
-
-    letter-spacing: -1.7px;
-}
-
-.profile-name span {
-    color: var(--dark-red, #541b1b);
-}
-
-.profile-intro-text {
-    max-width: 690px;
-    margin-bottom: 17px;
-
-    color: #3f3f3f;
-
-    font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.75;
-}
-
-.profile-buttons {
-    margin-top: 31px;
-
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 13px;
-}
-
-.profile-primary-button,
-.profile-secondary-button {
-    min-height: 44px;
-    padding: 0 19px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-
-    border-radius: 7px;
-
-    font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-
-    transition:
-        transform 160ms ease,
-        background-color 160ms ease;
-}
-
-.profile-primary-button {
-    background-color: var(--blue, #0d47a1);
-    color: #ffffff;
-
-    box-shadow: 0 5px 11px rgba(13, 71, 161, 0.18);
-}
-
-.profile-secondary-button {
-    border: 1px solid rgba(84, 27, 27, 0.25);
-
-    background-color: #ffffff;
-    color: var(--dark-red, #541b1b);
-}
-
-.profile-primary-button:hover,
-.profile-secondary-button:hover {
-    transform: translateY(-2px);
-}
-
-.profile-primary-button:hover {
-    background-color: #093a84;
-}
-
-
-/* =========================================================
-   GENERAL PROFILE SECTIONS
-   ========================================================= */
-
-.profile-section {
-    margin-top: 40px;
-    padding: 50px;
-
-    border: 1px solid rgba(84, 27, 27, 0.11);
-    border-radius: 23px;
-
-    background-color: #ffffff;
-
-    box-shadow: 0 13px 30px rgba(84, 27, 27, 0.06);
-}
-
-.profile-section-heading {
-    margin-bottom: 31px;
-}
-
-.profile-section-heading h2,
-.profile-journey h2 {
+    background: #ffffff;
     color: var(--dark-red, #541b1b);
 
-    font-family: "Cardo", Georgia, serif;
-    font-size: 38px;
-    line-height: 1.15;
+    font-size: 17px;
+
+    box-shadow: 0 4px 9px rgba(84, 27, 27, 0.06);
 }
 
-.section-description {
-    max-width: 640px;
-    margin-top: 12px;
-
-    color: #666666;
-
-    font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 13px;
-    line-height: 1.65;
-}
-
-
-/* =========================================================
-   PERSONAL DETAILS
-   ========================================================= */
-
-.personal-details-section {
-    position: relative;
-}
-
-.personal-details-grid {
-    width: 100%;
-    max-width: 1050px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-}
-
-.personal-detail-card {
-    position: relative;
-
-    min-height: 110px;
-    padding: 22px 25px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 7px;
-
-    overflow: hidden;
-
-    border: 1px solid #e4ddd8;
-    border-radius: 14px;
+.profile-back-line {
+    flex: 1;
+    height: 1px;
 
     background:
         linear-gradient(
-            135deg,
-            #fcfaf8 0%,
-            #ffffff 100%
+            90deg,
+            rgba(84, 27, 27, 0.24),
+            rgba(84, 27, 27, 0.03)
         );
-
-    transition:
-        transform 170ms ease,
-        border-color 170ms ease,
-        box-shadow 170ms ease;
 }
 
-.personal-detail-card::before {
+.profile-back-link:hover {
+    color: var(--blue, #0d47a1);
+    transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   MAIN PROFESSIONAL LAYOUT
+   ========================================================= */
+
+.developer-profile-layout {
+    display: grid;
+    grid-template-columns: 310px minmax(0, 1fr);
+    align-items: start;
+    gap: 26px;
+}
+
+
+/* =========================================================
+   LEFT PROFILE RAIL
+   ========================================================= */
+
+.developer-profile-sidebar {
+    position: sticky;
+    top: 28px;
+
+    min-width: 0;
+    padding: 24px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(84, 27, 27, 0.12);
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 4px 0 rgba(84, 27, 27, 0.42),
+        0 14px 34px rgba(84, 27, 27, 0.06);
+}
+
+.developer-profile-sidebar::before {
     content: "";
 
     position: absolute;
     top: 0;
+    right: 0;
     left: 0;
 
-    width: 100%;
     height: 3px;
 
     background:
@@ -396,168 +147,522 @@
         );
 }
 
-.personal-detail-card:hover {
-    transform: translateY(-3px);
 
-    border-color: rgba(13, 71, 161, 0.22);
+/* Profile image */
 
-    box-shadow:
-        0 10px 22px rgba(84, 27, 27, 0.07);
-}
+.sidebar-profile-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
 
-.personal-detail-label {
-    margin: 0;
+    overflow: hidden;
 
-    color: var(--blue, #0d47a1);
-
-    font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.personal-detail-value {
-    margin: 0;
-
-    color: #282828;
-
-    font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.45;
-}
-
-
-/* Personal Details - Mobile */
-
-@media (max-width: 700px) {
-
-    .personal-details-grid {
-        grid-template-columns: 1fr;
-        gap: 13px;
-    }
-
-    .personal-detail-card {
-        min-height: 95px;
-        padding: 19px 20px;
-    }
-
-    .personal-detail-value {
-        font-size: 14px;
-    }
-}
-
-
-/* =========================================================
-   INTERESTS
-   ========================================================= */
-
-.interests-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 19px;
-}
-
-.interest-card {
-    min-height: 265px;
-    padding: 26px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 21px;
-
-    border: 1px solid #ded8d3;
+    border: 1px solid rgba(84, 27, 27, 0.13);
     border-radius: 16px;
 
-    background-color: #faf8f6;
-
-    transition:
-        transform 170ms ease,
-        box-shadow 170ms ease;
+    background: #f7f2ee;
 }
 
-.interest-card:hover {
-    transform: translateY(-5px);
+.sidebar-profile-image img {
+    width: 100%;
+    height: 100%;
 
-    box-shadow: 0 13px 25px rgba(84, 27, 27, 0.08);
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
 }
 
-.interest-icon {
-    width: 47px;
-    height: 47px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Identity */
 
-    border: 2px solid #1f1f1f;
-    border-radius: 4px;
-
-    background-color: var(--red, #9a3333);
-    color: #ffffff;
-
-    font-family: "Courier New", monospace;
-    font-size: 20px;
-    font-weight: 900;
-
-    box-shadow: 4px 4px 0 #1f1f1f;
+.sidebar-identity {
+    margin-top: 22px;
 }
 
-.interest-card:nth-child(2) .interest-icon {
-    background-color: var(--blue, #0d47a1);
-}
-
-.interest-card:nth-child(3) .interest-icon {
-    background-color: #272727;
-}
-
-.interest-category {
-    margin-bottom: 8px;
+.sidebar-eyebrow,
+.section-label {
+    margin-bottom: 7px;
 
     color: var(--blue, #0d47a1);
 
     font-family: "Archivo", "Arimo", Arial, sans-serif;
     font-size: 9px;
     font-weight: 700;
+    letter-spacing: 1.4px;
 
-    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-.interest-card h3 {
-    margin-bottom: 12px;
+.sidebar-identity h1 {
+    margin: 0;
 
     color: var(--dark-red, #541b1b);
 
     font-family: "Cardo", Georgia, serif;
-    font-size: 25px;
+    font-size: 35px;
+    line-height: 1.05;
 }
 
-.interest-card p:last-child {
-    color: #555555;
+.sidebar-role {
+    margin-top: 9px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    color: #646464;
 
     font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 13px;
-    line-height: 1.65;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.sidebar-role span {
+    color: var(--red, #9a3333);
+}
+
+
+/* Status */
+
+.sidebar-status {
+    margin-top: 18px;
+    padding: 9px 11px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px solid #e7e1dc;
+    border-radius: 10px;
+
+    background: #fbfaf9;
+    color: #5e5e5e;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    flex: 0 0 7px;
+
+    border-radius: 50%;
+
+    background: #2d9b62;
+
+    box-shadow: 0 0 0 3px rgba(45, 155, 98, 0.13);
+}
+
+.sidebar-summary {
+    margin-top: 17px;
+
+    color: #565656;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* CTA */
+
+.sidebar-primary-button {
+    width: 100%;
+    min-height: 40px;
+    margin-top: 20px;
+    padding: 0 13px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    border-radius: 7px;
+
+    background: var(--blue, #0d47a1);
+    color: #ffffff;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+
+    box-shadow: 0 5px 12px rgba(13, 71, 161, 0.14);
+
+    transition:
+        transform 160ms ease,
+        background-color 160ms ease;
+}
+
+.sidebar-primary-button:hover {
+    transform: translateY(-2px);
+    background: #093a84;
+}
+
+
+/* Social contact */
+
+.sidebar-contact {
+    margin-top: 22px;
+    padding-top: 18px;
+
+    border-top: 1px solid #ece7e3;
+}
+
+.sidebar-contact-label {
+    margin-bottom: 10px;
+
+    color: #8a8a8a;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+}
+
+.sidebar-contact-icons {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.sidebar-social-link {
+    width: 38px;
+    height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #ddd7d2;
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: var(--dark-red, #541b1b);
+
+    transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background-color 160ms ease,
+        color 160ms ease;
+}
+
+.sidebar-social-link svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sidebar-social-fill svg {
+    fill: currentColor;
+    stroke: none;
+}
+
+.sidebar-social-link:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--blue, #0d47a1);
+
+    background: var(--blue, #0d47a1);
+    color: #ffffff;
 }
 
 
 /* =========================================================
-   JOURNEY SECTION
+   RIGHT CONTENT
    ========================================================= */
 
-.profile-journey {
-    margin-top: 40px;
-    padding: 53px;
+.developer-profile-content {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   ABOUT PANEL
+   ========================================================= */
+
+.developer-about-panel {
+    padding: 42px 44px;
+
+    border: 1px solid rgba(84, 27, 27, 0.11);
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow: 0 12px 30px rgba(84, 27, 27, 0.05);
+}
+
+.developer-about-panel h2 {
+    max-width: 700px;
+
+    color: var(--dark-red, #541b1b);
+
+    font-family: "Cardo", Georgia, serif;
+    font-size: clamp(38px, 4.2vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -1px;
+}
+
+.developer-about-copy {
+    max-width: 720px;
+    margin-top: 25px;
 
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
-    align-items: center;
-    gap: 60px;
+    gap: 13px;
+}
 
-    border-radius: 23px;
+.developer-about-copy p {
+    color: #474747;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.72;
+}
+
+
+/* =========================================================
+   BENTO GRID
+   ========================================================= */
+
+.developer-bento-grid {
+    margin-top: 22px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.developer-bento-card {
+    min-width: 0;
+    padding: 28px;
+
+    border: 1px solid rgba(84, 27, 27, 0.11);
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow: 0 10px 25px rgba(84, 27, 27, 0.045);
+}
+
+.bento-card-heading {
+    margin-bottom: 22px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.bento-card-heading h2 {
+    color: var(--dark-red, #541b1b);
+
+    font-family: "Cardo", Georgia, serif;
+    font-size: 28px;
+    line-height: 1.1;
+}
+
+.bento-number {
+    flex: 0 0 auto;
+
+    color: rgba(84, 27, 27, 0.22);
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   DETAILS CARD
+   ========================================================= */
+
+.developer-details-list {
+    display: grid;
+    gap: 0;
+}
+
+.developer-detail-row {
+    min-height: 72px;
+    padding: 13px 0;
+
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    align-items: center;
+    gap: 13px;
+
+    border-bottom: 1px solid #eee9e5;
+}
+
+.developer-detail-row:first-child {
+    padding-top: 0;
+}
+
+.developer-detail-row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.developer-detail-icon {
+    width: 36px;
+    height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #f8f3f0;
+    color: var(--dark-red, #541b1b);
+}
+
+.developer-detail-icon svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.developer-detail-label {
+    display: block;
+    margin-bottom: 3px;
+
+    color: #969696;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.developer-detail-row strong {
+    display: block;
+
+    color: #282828;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.42;
+}
+
+
+/* =========================================================
+   INTERESTS CARD
+   ========================================================= */
+
+.developer-interest-list {
+    display: grid;
+    gap: 0;
+}
+
+.developer-interest-row {
+    padding: 15px 0;
+
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 13px;
+
+    border-bottom: 1px solid #eee9e5;
+}
+
+.developer-interest-row:first-child {
+    padding-top: 0;
+}
+
+.developer-interest-row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.developer-interest-symbol {
+    width: 36px;
+    height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--red, #9a3333);
+    color: #ffffff;
+
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.developer-interest-symbol.blue {
+    background: var(--blue, #0d47a1);
+}
+
+.developer-interest-symbol.dark {
+    background: #292929;
+}
+
+.developer-interest-row span:not(.developer-interest-symbol) {
+    color: var(--blue, #0d47a1);
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+}
+
+.developer-interest-row h3 {
+    margin: 4px 0 5px;
+
+    color: var(--dark-red, #541b1b);
+
+    font-family: "Cardo", Georgia, serif;
+    font-size: 19px;
+    line-height: 1.15;
+}
+
+.developer-interest-row p {
+    color: #626262;
+
+    font-family: "Archivo", "Arimo", Arial, sans-serif;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   JOURNEY CARD
+   ========================================================= */
+
+.developer-journey-card {
+    grid-column: 1 / -1;
+
+    padding: 34px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.65fr);
+    align-items: center;
+    gap: 38px;
+
+    border-color: transparent;
 
     background:
         linear-gradient(
@@ -568,477 +673,206 @@
 
     color: #ffffff;
 
-    box-shadow: 0 15px 32px rgba(84, 27, 27, 0.17);
+    box-shadow: 0 15px 30px rgba(84, 27, 27, 0.13);
 }
 
-.profile-journey .section-label {
+.developer-journey-card .section-label {
     color: #a9c9fa;
 }
 
-.profile-journey h2 {
-    max-width: 720px;
-    margin-bottom: 20px;
+.developer-journey-card h2 {
+    max-width: 620px;
 
     color: #ffffff;
+
+    font-family: "Cardo", Georgia, serif;
+    font-size: 34px;
+    line-height: 1.08;
 }
 
-.profile-journey p:last-child {
-    max-width: 760px;
+.developer-journey-card .journey-copy > p:last-child {
+    max-width: 650px;
+    margin-top: 15px;
 
-    color: rgba(255, 255, 255, 0.79);
+    color: rgba(255, 255, 255, 0.80);
 
     font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.75;
+    font-size: 11px;
+    line-height: 1.65;
 }
 
 .journey-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .journey-tags span {
-    padding: 10px 13px;
+    padding: 8px 10px;
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 999px;
 
-    background-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.07);
     color: #ffffff;
 
     font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 600;
 }
 
 
 /* =========================================================
-   ACTIVE ABOUT LINK
+   RESPONSIVE
    ========================================================= */
 
-.profile-active-link {
-    position: relative;
-}
+@media (max-width: 1100px) {
 
-.profile-active-link::after {
-    content: "";
-
-    position: absolute;
-    right: 0;
-    bottom: -7px;
-    left: 0;
-
-    height: 2px;
-
-    background-color: currentColor;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 1050px) {
-    .profile-hero {
-        grid-template-columns: 290px minmax(0, 1fr);
-        gap: 42px;
-
-        padding: 48px 38px;
+    .profile-container {
+        width: min(calc(100% - 70px), 1050px);
     }
 
-    .profile-image-frame {
-        width: 250px;
-        height: 305px;
+    .developer-profile-layout {
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 20px;
     }
 
-    .profile-journey {
-        grid-template-columns: 1fr;
-        gap: 33px;
+    .developer-profile-sidebar {
+        padding: 20px;
+    }
+
+    .developer-about-panel {
+        padding: 36px;
+    }
+
+    .developer-bento-card {
+        padding: 24px;
     }
 }
 
 
-/* =========================================================
-   SMALL TABLET
-   ========================================================= */
+@media (max-width: 880px) {
 
-@media (max-width: 800px) {
-    .profile-page {
-        padding-top: 30px;
+    .profile-container {
+        width: calc(100% - 40px);
     }
 
-    .profile-hero {
-        grid-template-columns: 1fr;
-        gap: 42px;
-
-        padding: 55px 32px;
-    }
-
-    .profile-image-column {
-        order: 1;
-    }
-
-    .profile-introduction {
-        order: 2;
-
-        text-align: center;
-    }
-
-    .profile-buttons {
-        justify-content: center;
-    }
-
-    .profile-eyebrow {
-        text-align: center;
-    }
-
-    .profile-intro-text {
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    .interests-grid {
+    .developer-profile-layout {
         grid-template-columns: 1fr;
     }
 
-    .interest-card {
-        min-height: auto;
+    .developer-profile-sidebar {
+        position: static;
+
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 22px;
     }
 
-    .sticker-star {
-        top: 25px;
-        left: 25px;
+    .sidebar-profile-image {
+        grid-row: 1 / span 5;
     }
 
-    .sticker-music {
-        top: 25px;
-        right: 25px;
+    .sidebar-identity {
+        margin-top: 0;
+    }
+
+    .sidebar-contact {
+        margin-top: 5px;
+        padding-top: 12px;
+    }
+
+    .developer-bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .developer-journey-card {
+        grid-column: auto;
+        grid-template-columns: 1fr;
     }
 }
 
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
+@media (max-width: 600px) {
 
-@media (max-width: 560px) {
     .profile-page {
         padding: 20px 0 65px;
     }
 
-    .profile-hero {
-        padding: 70px 20px 50px;
-
-        border-radius: 19px;
+    .profile-container {
+        width: calc(100% - 24px);
     }
 
-    .profile-image-frame {
-        width: 225px;
-        height: 280px;
-    }
-
-    .profile-name {
-        font-size: 43px;
-    }
-
-    .profile-intro-text {
-        font-size: 14px;
-    }
-
-    .pixel-sticker {
-        width: 41px;
-        height: 41px;
-
-        font-size: 18px;
-    }
-
-    .sticker-film,
-    .sticker-cursor {
-        display: none;
-    }
-
-    .profile-section {
-        margin-top: 25px;
-        padding: 35px 20px;
-
-        border-radius: 18px;
-    }
-
-    .profile-section-heading h2,
-    .profile-journey h2 {
-        font-size: 31px;
-    }
-
-    .profile-journey {
-        margin-top: 25px;
-        padding: 39px 23px;
-
-        border-radius: 18px;
-    }
-
-    .profile-buttons {
-        flex-direction: column;
-    }
-
-    .profile-primary-button,
-    .profile-secondary-button {
-        width: 100%;
-    }
-}
-
-/* =========================================================
-   PROFILE BACK NAVIGATION
-   ========================================================= */
-
-.profile-top-navigation {
-    width: 100%;
-    margin-bottom: 23px;
-
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.profile-back-link {
-    flex-shrink: 0;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 11px;
-
-    color: var(--dark-red, #541b1b);
-
-    font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: 0.2px;
-
-    transition:
-        color 160ms ease,
-        transform 160ms ease;
-}
-
-.profile-back-arrow {
-    width: 37px;
-    height: 37px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(84, 27, 27, 0.3);
-    border-radius: 50%;
-
-    background-color: #ffffff;
-    color: var(--dark-red, #541b1b);
-
-    font-size: 18px;
-    line-height: 1;
-
-    box-shadow: 0 4px 10px rgba(84, 27, 27, 0.08);
-
-    transition:
-        background-color 160ms ease,
-        color 160ms ease,
-        transform 160ms ease;
-}
-
-.profile-back-line {
-    flex: 1;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(84, 27, 27, 0.32),
-            rgba(84, 27, 27, 0.05)
-        );
-}
-
-.profile-back-link:hover {
-    color: var(--blue, #0d47a1);
-    transform: translateX(-3px);
-}
-
-.profile-back-link:hover .profile-back-arrow {
-    background-color: var(--blue, #0d47a1);
-    border-color: var(--blue, #0d47a1);
-    color: #ffffff;
-
-    transform: translateX(-2px);
-}
-
-
-/* Mobile */
-
-@media (max-width: 560px) {
     .profile-top-navigation {
         margin-bottom: 17px;
-        gap: 14px;
     }
 
     .profile-back-arrow {
-        width: 34px;
-        height: 34px;
+        width: 33px;
+        height: 33px;
     }
 
-    .profile-back-link {
-        font-size: 11px;
-    }
-}
+    .developer-profile-sidebar {
+        display: block;
+        padding: 18px;
 
-/* =========================================================
-   PERSONAL DETAILS ICONS
-   ========================================================= */
-
-.personal-detail-card {
-    position: relative;
-
-    min-height: 110px;
-    padding: 22px 24px;
-
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    border: 1px solid #e4ddd8;
-    border-radius: 14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fcfaf8 0%,
-            #ffffff 100%
-        );
-
-    transition:
-        transform 170ms ease,
-        border-color 170ms ease,
-        box-shadow 170ms ease;
-}
-
-
-.personal-detail-card:hover {
-    transform: translateY(-3px);
-
-    border-color: rgba(13, 71, 161, 0.22);
-
-    box-shadow:
-        0 10px 22px rgba(84, 27, 27, 0.07);
-}
-
-
-.detail-icon {
-    width: 44px;
-    height: 44px;
-
-    flex: 0 0 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 11px;
-}
-
-
-.detail-icon svg {
-    width: 21px;
-    height: 21px;
-
-    fill: none;
-
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-
-/* Name */
-.detail-icon-name {
-    background-color: #fff0f0;
-    color: var(--red, #9a3333);
-}
-
-
-/* Course */
-.detail-icon-course {
-    background-color: #eef4ff;
-    color: var(--blue, #0d47a1);
-}
-
-
-/* School */
-.detail-icon-school {
-    background-color: #f8f1eb;
-    color: var(--dark-red, #541b1b);
-}
-
-
-/* Year */
-.detail-icon-year {
-    background-color: #eef4ff;
-    color: var(--blue, #0d47a1);
-}
-
-
-.personal-detail-text {
-    min-width: 0;
-}
-
-
-.personal-detail-label {
-    margin: 0 0 5px;
-
-    color: #777777;
-
-    font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-
-.personal-detail-value {
-    margin: 0;
-
-    color: #282828;
-
-    font-family: "Archivo", "Arimo", Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-
-    line-height: 1.45;
-}
-
-
-@media (max-width: 700px) {
-
-    .personal-detail-card {
-        min-height: 95px;
-        padding: 18px 20px;
+        border-radius: 16px;
     }
 
-    .detail-icon {
-        width: 40px;
-        height: 40px;
-
-        flex-basis: 40px;
+    .sidebar-profile-image {
+        width: 150px;
+        margin: 0 auto;
     }
 
-    .detail-icon svg {
-        width: 19px;
-        height: 19px;
+    .sidebar-identity,
+    .sidebar-summary {
+        text-align: center;
     }
 
-    .personal-detail-value {
-        font-size: 14px;
+    .sidebar-role,
+    .sidebar-contact-icons {
+        justify-content: center;
     }
 
+    .sidebar-status {
+        width: fit-content;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .sidebar-primary-button {
+        max-width: 260px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .sidebar-contact {
+        text-align: center;
+    }
+
+    .developer-about-panel {
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+
+    .developer-about-panel h2 {
+        font-size: 36px;
+    }
+
+    .developer-bento-card {
+        padding: 22px 18px;
+        border-radius: 15px;
+    }
+
+    .bento-card-heading h2 {
+        font-size: 25px;
+    }
+
+    .developer-journey-card {
+        padding: 28px 22px;
+    }
+
+    .developer-journey-card h2 {
+        font-size: 29px;
+    }
 }
