@@ -40,7 +40,48 @@
             </div>
         </div>
 
-<main
+
+        <header class="site-header">
+
+            <div class="container navbar">
+
+                <a href="{{ url_for('home') }}" class="logo">
+                    Learning Path
+                </a>
+
+                <nav
+                    class="nav-links"
+                    aria-label="Main navigation"
+                >
+                    <a
+                        href="{{ url_for('home') }}"
+                        class="nav-link nav-red"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="{{ url_for('blog') }}"
+                        class="nav-link nav-blue"
+                        aria-current="page"
+                    >
+                        Blog
+                    </a>
+
+                    <a
+                        href="{{ url_for('about') }}"
+                        class="nav-link nav-red"
+                    >
+                        About
+                    </a>
+                </nav>
+
+            </div>
+
+        </header>
+
+
+        <main
             class="category-page"
             data-category="{{ category_slug }}"
         >
@@ -226,15 +267,6 @@
                                         </svg>
 
                                         Published {{ entry.date }}
-                                    </span>
-
-                                    <span>
-                                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                            <path d="M12 7v5l3 2"></path>
-                                        </svg>
-
-                                        {{ entry.reading_time }}
                                     </span>
 
                                 </div>
