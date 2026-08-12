@@ -2,29 +2,29 @@ POSTS = {
     "information-assurance-and-security": {
         "slug": "information-assurance-and-security",
 
-        "title": "When Speed Becomes Risk: Rebuilding an AI-Assisted Healthcare Platform",
+        "title": "When Speed Becomes Risk: Rebuilding a Student Platform Securely",
 
         "title_line_1": "When Speed Becomes Risk:",
-        "title_line_2": "Rebuilding an AI-Assisted Healthcare Platform",
+        "title_line_2": "Rebuilding a Student Platform Securely",
 
         "description": (
-            "A technical reflection on how an AI-assisted healthcare platform "
-            "failed to protect sensitive patient information, which Secure Design "
-            "Principles were violated, and how the system should be rebuilt securely."
+            "A technical reflection on how an AI-assisted student platform "
+            "failed to protect personal data, the security principles it "
+            "violated, and how the system should be rebuilt responsibly."
         ),
 
         "category": "Lessons",
         "image": "featured-security.jpg",
-        "image_alt": "Secure healthcare platform and patient data protection",
+        "image_alt": "Secure student platform and data protection",
 
         "date": "August 13, 2026",
-        "reading_time": "9 min read",
+        "reading_time": "8 min read",
 
         "learning_outcomes": [
-            "Identify the security and privacy failures in the healthcare platform.",
-            "Explain the Secure Design Principles violated by the original system.",
-            "Describe the short-term containment actions required after discovering the vulnerability.",
-            "Explain the long-term security changes needed to rebuild the platform.",
+            "Identify the security and privacy failures in the student organization platform.",
+            "Explain which Secure Design Principles were violated and why those violations created real risk.",
+            "Describe the short-term containment steps required after discovering exposed student data.",
+            "Explain the long-term architectural and development changes needed to rebuild the platform securely.",
             "Connect secure software design decisions with privacy responsibilities under RA No. 10173."
         ],
 
@@ -35,39 +35,37 @@ POSTS = {
                 "heading": "Introduction",
                 "paragraphs": [
                     (
-                        "Information Assurance and Security is not simply about preventing "
-                        "hackers from breaking into a system. It is about making sure that "
-                        "information remains confidential, accurate, available, and "
-                        "protected throughout its entire lifecycle. This responsibility "
-                        "becomes much more serious when a system handles personal "
-                        "information, because a security mistake can directly affect "
-                        "real people."
+                        "Information Assurance and Security is not only about protecting "
+                        "computers from hackers. It is about making sure that information "
+                        "remains confidential, accurate, available, and trustworthy "
+                        "throughout its lifecycle. When developers build software that "
+                        "handles personal information, security becomes part of the "
+                        "design itself rather than something added after the application "
+                        "has already been deployed."
                     ),
                     (
-                        "Consider a small healthcare startup where three developers build "
-                        "a mobile and web platform for clinics. The platform manages "
-                        "patient appointments, medical records, billing references, "
-                        "uploaded documents, and communication between patients and "
-                        "healthcare staff. Because the developers want to move quickly, "
-                        "they rely heavily on an AI coding assistant to generate much "
-                        "of the backend. Within 72 hours, they have a working prototype."
+                        "This becomes especially important when development is accelerated "
+                        "through artificial intelligence. AI coding assistants can generate "
+                        "working code extremely quickly, but code that works is not "
+                        "necessarily code that is secure. A system can successfully "
+                        "authenticate users, save records, upload files, and process "
+                        "payments while still exposing sensitive information to "
+                        "unauthorized people."
                     ),
                     (
-                        "The project initially appears successful. Several clinics begin "
-                        "using the application, and the developers gradually add more "
-                        "features without stopping to reconsider the security "
-                        "requirements of a production healthcare system. The application "
-                        "eventually stores patient names, phone numbers, medical records, "
-                        "laboratory results, prescription information, identification "
-                        "documents, and private doctor-patient messages."
+                        "The university platform in this case demonstrates this problem "
+                        "clearly. Three students created a mobile-and-web application for "
+                        "student organizations in less than 72 hours. The application was "
+                        "initially intended as a hackathon prototype, but more than a "
+                        "dozen organizations eventually began using it. The system was "
+                        "now storing names, student numbers, phone numbers, GCash payment "
+                        "screenshots, identification photos, and private group "
+                        "conversations."
                     ),
                     (
-                        "The problem becomes obvious when a user notices that changing "
-                        "the number in a profile URL from /patient/1048 to /patient/1049 "
-                        "displays another patient's complete record. The application "
-                        "checks that the user is logged in, but it does not properly "
-                        "verify whether that user is authorized to access the requested "
-                        "patient's record."
+                        "The application had effectively become production software "
+                        "without receiving the security review and privacy considerations "
+                        "expected of a production system."
                     )
                 ],
                 "bullets": []
@@ -75,66 +73,67 @@ POSTS = {
 
             {
                 "id": "what-went-wrong",
-                "heading": "What Went Wrong",
+                "heading": "What Went Wrong?",
                 "paragraphs": [
                     (
-                        "The first major failure was treating a production healthcare "
-                        "platform like a prototype. During the initial development stage, "
-                        "speed was understandable. The developers wanted to demonstrate "
-                        "their idea and get something working quickly. However, once real "
-                        "clinics and patients began using the system, the security "
-                        "requirements changed. The application was no longer just a "
-                        "demonstration. It was processing sensitive personal information, "
-                        "which meant confidentiality and privacy needed to become "
-                        "fundamental design requirements."
+                        "The first major problem was a failure to recognize that the "
+                        "application had changed from a prototype into a system containing "
+                        "real personal information. During the hackathon, speed was the "
+                        "main objective. The team used an AI coding assistant to generate "
+                        "much of the backend, and the application was operational in less "
+                        "than three days. That achievement was useful for demonstrating "
+                        "the idea, but the same development process became dangerous once "
+                        "real students started using the platform."
                     ),
                     (
-                        "The most obvious vulnerability was the patient-profile problem. "
-                        "Changing /patient/1048 to /patient/1049 allowed a user to retrieve "
-                        "another person's record. This is an authorization failure. "
-                        "Authentication answers the question, 'Who are you?' while "
-                        "authorization answers, 'Are you allowed to access this record?' "
-                        "The system appeared to authenticate users but failed to properly "
-                        "authorize access to individual resources."
+                        "Information assurance requires more than making information "
+                        "available. It involves protecting information throughout its "
+                        "lifecycle and maintaining appropriate confidentiality, integrity, "
+                        "availability, and trust. The platform failed particularly badly "
+                        "in confidentiality."
                     ),
                     (
-                        "This violates the principle of Complete Mediation, which requires "
-                        "access to protected resources to be checked whenever access is "
-                        "requested. A valid login should never automatically give someone "
-                        "access to every patient record. The application should verify "
-                        "the identity of the requester, determine which patient record "
-                        "is being requested, and confirm that the requester has permission "
-                        "to access that specific record."
+                        "The profile vulnerability was a serious authorization failure. "
+                        "Changing a profile identifier from /profile/1048 to "
+                        "/profile/1049 allowed a student to view another student's "
+                        "information. The application did not properly verify whether "
+                        "the person requesting the record was authorized to access it."
                     ),
                     (
-                        "The system also violated Least Privilege. Every account had broad "
-                        "database read access even though most users should only have "
-                        "access to information necessary for their responsibilities. "
-                        "A receptionist, for example, should not automatically have "
-                        "unrestricted access to every medical record, and an ordinary "
-                        "patient should not be able to retrieve another patient's "
-                        "information."
+                        "This demonstrates the difference between authentication and "
+                        "authorization. Authentication establishes who a user is, while "
+                        "authorization determines what that user is allowed to access. "
+                        "Treating these as the same problem creates serious security "
+                        "weaknesses."
                     ),
                     (
-                        "Another major problem was the database password and payment API "
-                        "key stored in a public GitHub repository. These credentials "
-                        "should never have been committed to source code. Once a secret "
-                        "becomes publicly accessible, developers should assume that it "
-                        "has been compromised. Removing it from the latest version is "
-                        "not enough because it may remain in repository history."
+                        "The platform also violated the principle of least privilege. "
+                        "Every account was provisioned with broad database read access. "
+                        "A user or application component should receive only the "
+                        "permissions necessary to perform its legitimate function. "
+                        "Broad database access increases the potential damage if an "
+                        "account is compromised."
                     ),
                     (
-                        "The application also violated Fail-Safe Defaults. A secure "
-                        "system should deny access unless the required authorization "
-                        "has been established. The original application effectively "
-                        "did the opposite: if someone knew or guessed a valid patient "
-                        "identifier, the application attempted to provide the record."
+                        "Another failure was the exposure of secrets. The database "
+                        "password and payment API key were stored in a public GitHub "
+                        "repository. Secrets should never be treated as ordinary source "
+                        "code. Once credentials have been exposed, they must be considered "
+                        "compromised and replaced."
                     ),
                     (
-                        "Finally, the application used plain HTTP and displayed complete "
-                        "stack traces on error pages. These weaknesses exposed information "
-                        "that should have been protected and demonstrated why multiple "
-                        "layers of security are necessary."
+                        "The application also displayed complete stack traces in error "
+                        "pages. Although detailed errors are useful during development, "
+                        "exposing internal application information to users can reveal "
+                        "database structures, file paths, libraries, configuration "
+                        "details, or other information useful to attackers."
+                    ),
+                    (
+                        "Finally, the system operated over plain HTTP. Sensitive "
+                        "information should not be transmitted through an unencrypted "
+                        "connection. Using HTTP for a system handling student records, "
+                        "payment information, identification photos, and private "
+                        "communications creates unnecessary exposure."
                     )
                 ],
                 "bullets": []
@@ -145,65 +144,134 @@ POSTS = {
                 "heading": "Horizon One: The First Hours and Days",
                 "paragraphs": [
                     (
-                        "Once the vulnerability is discovered, the first priority should "
-                        "be containment. The healthcare platform should be taken offline "
-                        "or access to the affected functionality should be disabled "
-                        "until the problem can be investigated. Continuing to operate "
-                        "a system that is known to expose patient information creates "
-                        "the possibility of additional unauthorized access."
+                        "The first priority after discovering the vulnerability should "
+                        "be containment. The decision to pull the application offline was "
+                        "appropriate. Continuing to operate a system known to expose "
+                        "personal information would allow additional unauthorized access."
                     ),
                     (
-                        "Taking the system offline restores Fail-Safe Defaults because "
-                        "the safest state, while the security of the application is "
-                        "uncertain, is to prevent further access rather than assume "
-                        "that everything is safe."
+                        "The first short-term action would therefore be to disable public "
+                        "access to the application while the investigation takes place. "
+                        "This restores the principle of fail-safe defaults: when the "
+                        "system cannot establish that access is safe and authorized, "
+                        "access should be denied rather than automatically permitted."
                     ),
                     (
-                        "The exposed database password and API key should immediately "
-                        "be revoked and replaced. The developers should not simply "
-                        "delete them from the source code and assume the problem is "
-                        "solved. Repository history should be examined, and any other "
-                        "credentials that may have been exposed should also be considered "
-                        "compromised."
+                        "The second step would be to immediately rotate the exposed "
+                        "database password and payment API key. Simply deleting the "
+                        "credentials from the current version of the source code would "
+                        "not be enough because they may remain in previous Git commits. "
+                        "Any credential that appeared in a public repository should be "
+                        "treated as compromised."
                     ),
                     (
-                        "The team should then preserve logs and investigate what happened. "
-                        "They should determine which accounts accessed patient records, "
-                        "which records were requested, when the activity occurred, and "
-                        "whether medical records or uploaded documents were downloaded. "
-                        "This supports Accountability because a secure system needs "
-                        "enough logging and monitoring to determine what happened when "
-                        "an incident occurs."
+                        "The team should also preserve relevant logs and investigate what "
+                        "happened before making major changes to the system. They should "
+                        "determine which accounts accessed sensitive records, when those "
+                        "accesses occurred, and whether personal information or uploaded "
+                        "files were downloaded. This supports accountability because "
+                        "security is not only about preventing unauthorized activity; "
+                        "organizations also need the ability to determine what happened "
+                        "when an incident occurs."
                     ),
                     (
-                        "The team should also identify the type and amount of personal "
-                        "information that may have been exposed. Patient names, medical "
-                        "records, laboratory results, prescriptions, identification "
-                        "documents, contact information, and private messages may all "
-                        "require different levels of protection and assessment."
+                        "Next, the team should identify exactly what information was "
+                        "exposed. The affected data includes full names, student numbers, "
+                        "phone numbers, payment screenshots, ID photos, and private "
+                        "group chats. Understanding the scope of exposure is necessary "
+                        "for determining the seriousness of the incident and the "
+                        "appropriate response."
                     ),
                     (
-                        "The organization should evaluate the incident from a privacy "
-                        "perspective, including the requirements that may apply under "
-                        "Republic Act No. 10173, the Data Privacy Act of 2012. The "
-                        "appropriate response should be determined based on the actual "
-                        "circumstances of the incident."
+                        "The university and relevant responsible parties should also "
+                        "assess the incident from a privacy perspective, including the "
+                        "obligations that may arise under Republic Act No. 10173, the "
+                        "Data Privacy Act of 2012."
                     ),
                     (
-                        "The developers should not immediately fix only the vulnerable "
-                        "URL and put the application back online. The system needs a "
-                        "proper security review before it is trusted with patient "
-                        "information again."
+                        "Finally, the vulnerable application should not simply be brought "
+                        "back online after changing the profile URL logic. The system "
+                        "should first undergo a security review and testing process. "
+                        "A temporary patch is useful for containment, but it does not "
+                        "solve the underlying design problem."
                     )
                 ],
                 "bullets": [
-                    "Take the affected application offline.",
-                    "Revoke and rotate exposed database credentials.",
-                    "Rotate exposed API keys.",
+                    "Take the vulnerable application offline.",
+                    "Rotate the exposed database password.",
+                    "Rotate the exposed payment API key.",
                     "Preserve logs and relevant evidence.",
-                    "Determine which patient information may have been exposed.",
-                    "Assess the privacy implications of the incident.",
+                    "Determine which student records may have been exposed.",
+                    "Assess the privacy and security implications.",
                     "Perform security testing before restoring service."
+                ]
+            },
+
+            {
+                "id": "secure-design-principles",
+                "heading": "Restoring the Violated Secure Design Principles",
+                "paragraphs": [
+                    (
+                        "Several Secure Design Principles were violated by the original "
+                        "application. Rebuilding the platform correctly requires "
+                        "understanding how each principle applies to the incident."
+                    ),
+                    (
+                        "Least Privilege means that users and application components "
+                        "should receive only the permissions required for their "
+                        "responsibilities. Giving every account broad database read "
+                        "access created unnecessary risk. The rebuilt system should use "
+                        "restricted database accounts, carefully defined roles, and "
+                        "server-side authorization checks."
+                    ),
+                    (
+                        "Fail-Safe Defaults means that access should be denied unless "
+                        "the system can establish that access is safe and authorized. "
+                        "The original platform effectively assumed that possession of a "
+                        "profile identifier was enough to retrieve a record. The safer "
+                        "approach is to deny access unless authorization has been "
+                        "explicitly established."
+                    ),
+                    (
+                        "Complete Mediation requires authorization to occur whenever "
+                        "access to a protected resource is requested. A request for "
+                        "/profile/1049 should not simply mean retrieve profile 1049. "
+                        "The server should determine who is making the request, identify "
+                        "the requested resource, verify the user's relationship to that "
+                        "resource, and only then return the minimum information the user "
+                        "is permitted to see."
+                    ),
+                    (
+                        "Defense in Depth means that the system should not depend on a "
+                        "single security mechanism. Multiple layers should protect "
+                        "sensitive information, including authentication, authorization, "
+                        "encryption, restricted database permissions, secure secret "
+                        "storage, logging, monitoring, input validation, and security "
+                        "testing."
+                    ),
+                    (
+                        "Economy of Mechanism is also important. The team relied heavily "
+                        "on generated backend scaffolding. AI-generated code can "
+                        "introduce unnecessary complexity or insecure assumptions that "
+                        "developers may not fully understand. A secure system should "
+                        "be understandable enough for its developers to review, test, "
+                        "and maintain."
+                    ),
+                    (
+                        "Open Design means that security should not depend on keeping "
+                        "the internal structure of the application secret. A URL such "
+                        "as /profile/1048 should never be considered a security control. "
+                        "Even if someone knows the identifier, the server must still "
+                        "enforce authorization."
+                    )
+                ],
+                "bullets": [
+                    "Least Privilege",
+                    "Fail-Safe Defaults",
+                    "Complete Mediation",
+                    "Defense in Depth",
+                    "Economy of Mechanism",
+                    "Open Design"
                 ]
             },
 
@@ -212,147 +280,185 @@ POSTS = {
                 "heading": "Horizon Two: Rebuilding the Platform",
                 "paragraphs": [
                     (
-                        "The long-term solution is to rebuild the system around security "
-                        "principles rather than simply adding individual patches. Every "
-                        "request involving patient information should pass through "
-                        "authentication and authorization. A request such as "
-                        "/patient/1049 should never be treated as permission to retrieve "
-                        "that patient's information simply because the identifier exists."
+                        "The long-term solution should begin with a secure architecture "
+                        "rather than another quick patch. Every request should pass "
+                        "through authentication and authorization before protected "
+                        "information is returned. Database access should occur through "
+                        "controlled application services rather than allowing users to "
+                        "directly access database records."
                     ),
                     (
-                        "The application should determine who is making the request, "
-                        "identify the requested resource, check whether that person is "
-                        "authorized to access it, and return only the information "
-                        "necessary for the legitimate purpose. This directly restores "
-                        "Complete Mediation and Least Privilege."
+                        "For example, when a user requests /profile/1049, the server "
+                        "should first identify the authenticated user, determine the "
+                        "requested resource, verify that the user has permission to "
+                        "access that particular resource, and then retrieve only the "
+                        "information that the user is allowed to see. Knowing a valid "
+                        "record number must never be treated as proof of authorization."
                     ),
                     (
-                        "Database permissions should also be redesigned. The application "
-                        "should use restricted database accounts rather than giving "
-                        "every account broad read access. Different roles should have "
-                        "clearly defined permissions. A patient should only be able "
-                        "to access their own appropriate information, while healthcare "
-                        "employees should receive access based on their actual "
-                        "responsibilities."
+                        "The system should also enforce HTTPS throughout the application. "
+                        "Encryption in transit protects information as it moves between "
+                        "users and the server. This is especially important for login "
+                        "credentials, student information, payment-related information, "
+                        "uploaded files, and private communications."
                     ),
                     (
-                        "The platform should use HTTPS for all communication. Sensitive "
-                        "information should be encrypted while being transmitted, and "
-                        "sensitive data stored by the application should receive "
-                        "appropriate protection."
+                        "Sensitive data should also be minimized. The developers should "
+                        "ask whether the application actually needs every piece of "
+                        "information it collects. If an organization only needs "
+                        "confirmation that a payment was made, storing unnecessary "
+                        "screenshots indefinitely may create additional privacy risk."
                     ),
                     (
-                        "Data minimization should also become part of the design. "
-                        "The developers should ask whether every piece of information "
-                        "being collected is actually necessary. Storing unnecessary "
-                        "medical documents or retaining information indefinitely "
-                        "creates additional privacy risk."
-                    ),
-                    (
-                        "Uploaded identification documents and medical files should not "
-                        "be placed in publicly accessible directories. Access should "
-                        "be controlled through the application, and files should only "
-                        "be available to authorized users."
+                        "Uploaded ID photos require especially strong protection because "
+                        "they contain identifying information. Access should be "
+                        "restricted, storage should be protected, and appropriate "
+                        "retention periods should be defined."
                     ),
                     (
                         "Secrets should be removed from source code. Database credentials "
-                        "and API keys should be stored using environment variables or "
-                        "an appropriate secrets-management solution. Repository scanning "
-                        "should also be used to detect accidentally committed credentials."
+                        "and API keys should be stored using environment variables or an "
+                        "appropriate secrets-management system. Developers should also "
+                        "scan repositories for accidentally committed credentials."
                     ),
                     (
                         "Error handling must also be redesigned. Users should receive "
                         "safe, generic error messages, while detailed diagnostic "
-                        "information should be recorded securely on the server."
+                        "information should be recorded securely on the server. This "
+                        "prevents internal implementation details from being unnecessarily "
+                        "revealed."
                     ),
                     (
-                        "Security testing should become part of the development lifecycle. "
-                        "The application should be tested for authorization failures, "
-                        "insecure direct object references, authentication weaknesses, "
-                        "excessive permissions, exposed secrets, insecure file uploads, "
-                        "and information leakage."
+                        "Security testing should become part of development rather than "
+                        "something performed only after an incident. The application "
+                        "should be tested for authorization failures, insecure direct "
+                        "object references, authentication problems, excessive "
+                        "permissions, exposed secrets, insecure file uploads, and "
+                        "other common weaknesses."
+                    )
+                ],
+                "bullets": [
+                    "Use HTTPS for all application traffic.",
+                    "Enforce server-side authentication and authorization.",
+                    "Use restricted database accounts and permissions.",
+                    "Store secrets outside source code.",
+                    "Minimize the personal information collected and retained.",
+                    "Protect uploaded identification documents.",
+                    "Use safe production error messages.",
+                    "Add security testing to the development lifecycle."
+                ]
+            },
+
+            {
+                "id": "ai-development",
+                "heading": "AI-Assisted Development and Human Responsibility",
+                "paragraphs": [
+                    (
+                        "The case also demonstrates an important issue in modern software "
+                        "development: AI assistants can accelerate implementation, but "
+                        "they do not transfer responsibility for security decisions."
+                    ),
+                    (
+                        "The team asked an AI coding assistant to help them make the "
+                        "application work quickly. AI can generate code that looks "
+                        "professional and may function correctly during basic testing. "
+                        "However, functionality and security are different requirements."
+                    ),
+                    (
+                        "A generated endpoint can successfully retrieve a profile while "
+                        "still failing to determine whether the requester is authorized "
+                        "to view that profile. An AI-generated database configuration "
+                        "can successfully connect to the database while granting far "
+                        "more access than the application actually needs."
+                    ),
+                    (
+                        "Developers therefore remain responsible for reviewing and "
+                        "understanding generated code. They must ask who can access data, "
+                        "what permissions exist, how authentication works, how "
+                        "authorization is enforced, where secrets are stored, how errors "
+                        "are handled, what information is logged, and how personal "
+                        "information is protected."
+                    ),
+                    (
+                        "The correct lesson is not to stop using AI. The lesson is to use "
+                        "AI responsibly. AI can assist with implementation, testing, "
+                        "documentation, and learning, but human developers must validate "
+                        "the security and privacy consequences of the resulting system."
                     )
                 ],
                 "bullets": []
             },
 
             {
-                "id": "secure-design",
-                "heading": "Secure Design Principles",
+                "id": "ra-10173",
+                "heading": "RA No. 10173 and the Developer's Responsibility",
                 "paragraphs": [
                     (
-                        "The incident can be understood through several Secure Design "
-                        "Principles. Least Privilege was violated because accounts had "
-                        "more database access than necessary. Complete Mediation was "
-                        "violated because the application did not verify authorization "
-                        "for every patient record request. Fail-Safe Defaults were "
-                        "violated because access was effectively allowed when a valid "
-                        "record identifier was supplied."
+                        "The case also demonstrates why privacy should be considered "
+                        "during software design. Under Republic Act No. 10173, the "
+                        "Data Privacy Act of 2012, personal information requires "
+                        "appropriate protection. The application was processing "
+                        "information that could identify students, including student "
+                        "numbers, contact information, identification photographs, "
+                        "and payment-related information."
                     ),
                     (
-                        "Defense in Depth was also missing. A secure healthcare platform "
-                        "should use multiple layers of protection, including authentication, "
-                        "authorization, encryption, restricted database permissions, "
-                        "secure secret storage, logging, monitoring, and security "
-                        "testing. If one layer fails, another should reduce the impact."
+                        "The important lesson for developers is that privacy cannot "
+                        "simply be delegated to administrators or legal departments. "
+                        "Technical decisions directly influence whether privacy is "
+                        "protected."
                     ),
                     (
-                        "The principle of Economy of Mechanism is important because the "
-                        "developers relied heavily on AI-generated backend scaffolding. "
-                        "Generated code can introduce unnecessary complexity or insecure "
-                        "assumptions that developers may not understand. A secure system "
-                        "should remain understandable enough to review, test, and maintain."
+                        "If a developer creates an endpoint that allows one student to "
+                        "retrieve another student's information, that is a design "
+                        "decision with privacy consequences. If a developer stores "
+                        "credentials in a public repository, that is a development "
+                        "decision. If a developer chooses HTTP instead of HTTPS, that "
+                        "is also a technical decision affecting the confidentiality "
+                        "of information."
                     ),
                     (
-                        "Open Design is also relevant. Security should never depend on "
-                        "hiding URL structures. A patient ID being visible in a URL is "
-                        "not itself a security control. Even if someone knows the "
-                        "identifier, authorization must still be enforced."
+                        "Developers may not be the only people responsible for privacy "
+                        "compliance, but their architectural and coding decisions can "
+                        "directly enable or prevent privacy violations. Privacy should "
+                        "therefore be treated as a requirement during planning, design, "
+                        "development, testing, deployment, and maintenance."
                     )
                 ],
                 "bullets": []
             },
 
             {
-                "id": "ai-and-privacy",
-                "heading": "AI, Privacy, and Developer Responsibility",
+                "id": "speed-versus-responsibility",
+                "heading": "Speed Versus Responsibility",
                 "paragraphs": [
                     (
-                        "The developers' use of AI is not automatically the problem. "
-                        "AI coding assistants can help developers create prototypes, "
-                        "explain unfamiliar concepts, generate repetitive code, and "
-                        "accelerate development. The problem occurs when developers "
-                        "assume that generated code is secure simply because it works."
+                        "The original team accomplished something impressive: they "
+                        "transformed an idea into a working application in less than "
+                        "72 hours. The problem was not simply that they moved quickly. "
+                        "The problem was that the development process remained in "
+                        "hackathon mode even after the software began handling real "
+                        "people's information."
                     ),
                     (
-                        "An AI assistant may generate an endpoint that correctly retrieves "
-                        "a patient record while failing to check whether the requester "
-                        "is allowed to see it. It may also generate database configurations "
-                        "with excessive privileges or suggest placing configuration values "
-                        "directly into source code. The code can look professional and "
-                        "still contain serious security weaknesses."
+                        "Speed is valuable, especially during prototyping. AI assistants "
+                        "can make development dramatically faster. But speed should not "
+                        "eliminate security review, authorization design, privacy "
+                        "considerations, testing, or human judgment."
                     ),
                     (
-                        "Human developers therefore remain responsible for reviewing "
-                        "and understanding generated code. They need to understand what "
-                        "the code does and ask security questions before allowing it "
-                        "to handle real information."
+                        "When software handles real people's data, developers must "
+                        "consider the people behind the records. Students did not agree "
+                        "to have their identification documents exposed simply because "
+                        "the application was created as a fast prototype. The fact that "
+                        "the application started as a hackathon project did not remove "
+                        "the responsibility created when real personal information "
+                        "entered the system."
                     ),
                     (
-                        "This responsibility is especially important under RA No. 10173, "
-                        "the Data Privacy Act of 2012. A healthcare application processes "
-                        "information that can identify individuals and may include highly "
-                        "sensitive information. Protecting that information cannot be "
-                        "treated as an optional feature."
-                    ),
-                    (
-                        "Technical decisions directly affect privacy. Creating an endpoint "
-                        "without proper authorization, storing credentials in a public "
-                        "repository, or transmitting information without appropriate "
-                        "encryption can all contribute to privacy risks. Developers may "
-                        "not be solely responsible for every aspect of legal compliance, "
-                        "but their architectural and coding decisions can directly enable "
-                        "or prevent privacy violations."
+                        "The better question is not only whether a feature can be shipped "
+                        "quickly. Developers should also ask whether they can responsibly "
+                        "ask people to trust the system with their information."
                     )
                 ],
                 "bullets": []
@@ -363,41 +469,48 @@ POSTS = {
                 "heading": "Conclusion",
                 "paragraphs": [
                     (
-                        "The healthcare platform did not fail because the developers "
-                        "were unable to make software. In fact, they succeeded at making "
-                        "software very quickly. The failure was that they continued "
-                        "treating the system as a fast prototype even after it became "
-                        "responsible for real people's sensitive information."
+                        "The university platform failed because a prototype was allowed "
+                        "to become production software without changing the way it was "
+                        "designed, tested, and operated."
                     ),
                     (
-                        "The exposed patient records demonstrated failures in Complete "
-                        "Mediation, Least Privilege, and Fail-Safe Defaults. The exposed "
-                        "credentials demonstrated poor secret management, while plain "
-                        "HTTP, detailed stack traces, and the absence of layered controls "
-                        "demonstrated weaknesses in Defense in Depth."
+                        "The exposed profile records demonstrated failures in "
+                        "authorization, complete mediation, and least privilege. The "
+                        "exposed database password and API key demonstrated poor secret "
+                        "management. Stack traces and plain HTTP created additional "
+                        "exposure. Most importantly, the developers treated security "
+                        "as something secondary to functionality."
                     ),
                     (
-                        "The short-term response should focus on containment, credential "
-                        "rotation, investigation, evidence preservation, identification "
-                        "of affected information, and privacy assessment. The long-term "
-                        "response should rebuild the application around authorization, "
-                        "least privilege, encryption, secure secret management, data "
-                        "minimization, safe error handling, logging, and continuous "
-                        "security testing."
+                        "The correct response begins with containment: take the "
+                        "application offline, rotate exposed credentials, preserve "
+                        "evidence, determine what information was exposed, and assess "
+                        "the privacy implications."
                     ),
                     (
-                        "Most importantly, the case shows that shipping quickly and "
-                        "building securely do not have to be opposites. Developers can "
-                        "use AI to move faster, but they must still take responsibility "
-                        "for the systems they create."
+                        "The long-term response requires a secure redesign based on "
+                        "principles such as least privilege, fail-safe defaults, "
+                        "complete mediation, defense in depth, economy of mechanism, "
+                        "and open design."
                     ),
                     (
-                        "When an application handles personal information, the most "
-                        "important question is not simply, 'Can we make it work?' "
-                        "It is, 'Can we build it in a way that deserves the trust of "
-                        "the people whose information we hold?' That is where "
-                        "Information Assurance, Secure Design Principles, responsible "
-                        "AI-assisted development, and privacy under RA No. 10173 meet."
+                        "Information Assurance reminds us that security is not a "
+                        "single feature. It is an ongoing responsibility to protect "
+                        "the confidentiality, integrity, availability, and "
+                        "trustworthiness of information."
+                    ),
+                    (
+                        "AI assistants make it easier than ever to build software "
+                        "quickly. That makes secure design even more important, not "
+                        "less. Generated code may look professional and may work "
+                        "perfectly while still containing serious security weaknesses."
+                    ),
+                    (
+                        "Ultimately, the goal of software development should not simply "
+                        "be to ask, 'Can we ship this?' We should also ask, 'Can we "
+                        "responsibly ask people to trust us with their information?' "
+                        "When software handles real people's data, the answer must "
+                        "come before speed."
                     )
                 ],
                 "bullets": []
